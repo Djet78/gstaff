@@ -1,0 +1,19 @@
+{% extends "games/base.html" %}
+
+{% block title %}
+    {{ game.name|title }}
+{% endblock title%}
+
+{% block content %}
+    <h2>{{ game.name }}</h2>
+    <img src="{{ game.poster.url }}">
+    <p>{{ game.release_date }}</p>
+    <p>Dev Studio: {{ game.studio }}</p>
+    {% for genre in game.genres.all %}
+        <p>{{ genre.name }}</p>
+    {% endfor %}
+    <p>{{ game.description }}</p>
+    {% for plat in game.platforms.all %}
+        <p>{{ plat.name }}</p>
+    {% endfor %}
+{% endblock content %}

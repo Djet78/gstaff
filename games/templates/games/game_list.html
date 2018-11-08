@@ -1,0 +1,25 @@
+{% extends "games/base.html" %}
+
+{% block title %}
+    Games
+{% endblock title%}
+
+{% block content %}
+    {% for g in games%}
+        <h2>{{ g.name }}</h2>
+        <img src="{{ g.poster.url }}">
+        <p>{{ g.release_date }}</p>
+        <p>Dev Studio: {{ g.studio }}</p>
+        {% for genre in g.genres.all %}
+            <p>{{ genre.name }}</p>
+        {% endfor %}
+        <p>{{ g.description }}</p>
+        {% for plat in g.platforms.all %}
+            <p>{{ plat.name }}</p>
+        {% endfor %}
+        <p><a href="{% url 'game_detail' g.id %}">More</a></p>
+        <hr>
+    {% empty %}
+        No games matched
+    {% endfor %}
+{% endblock content %}
