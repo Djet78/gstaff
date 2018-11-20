@@ -35,7 +35,7 @@ class CustomUser(AbstractBaseUser):
     nickname = models.CharField(max_length=40, blank=True)
     email = models.EmailField(unique=True)
     avatar = models.ImageField(upload_to='users_avatars', null=True, blank=True)
-    date_joined = models.DateField(default=timezone.now)
+    date_joined = models.DateField(default=timezone.now, editable=False)
     is_admin = models.BooleanField(default=False)
     is_redactor = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
