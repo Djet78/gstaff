@@ -1,5 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.utils import timezone
+
+
+USER_NICKNAME_COUNTER = 0
 
 
 class CustomUserManager(BaseUserManager):
@@ -19,8 +23,8 @@ class CustomUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_user(self, login, email,  password=None, **extra_fields):
-        return self._create_user(login, email, password, nickname='Guest', **extra_fields)
+    def create_user(self, login, email,  password, nickname='Guest', **extra_fields):
+        return self._create_user(login, email, password, nickname, **extra_fields)
 
     def create_superuser(self, login, email, password, nickname='Admin', **extra_fields):
         return self._create_user(login, email, password, nickname, is_admin=True, **extra_fields)
@@ -31,14 +35,25 @@ class CustomUser(AbstractBaseUser):
     nickname = models.CharField(max_length=40, blank=True)
     email = models.EmailField(unique=True)
     avatar = models.ImageField(upload_to='users_avatars', null=True, blank=True)
+    date_joined = models.DateField(default=timezone.now)
     is_admin = models.BooleanField(default=False)
+    is_redactor = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
-    is_publisher = models.BooleanField(default=False)
-
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'login'
     REQUIRED_FIELDS = ['email', ]
+
+    class Meta:
+        ordering = ['-date_joined']
+
+    def save(self, *args, **kwargs):
+        """ Creates nickname for every user who left nickname field blank """
+        if not self.nickname:
+            global USER_NICKNAME_COUNTER
+            USER_NICKNAME_COUNTER += 1
+            self.nickname = f'User{USER_NICKNAME_COUNTER}'
+        super().save(*args, **kwargs)
 
     # TODO finish implementations of methods below
     def has_perm(self, perm, obj=None):
@@ -55,7 +70,7 @@ class CustomUser(AbstractBaseUser):
     def is_staff(self):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
-        return self.is_admin
+        return self.is_admin or self.is_redactor
 
     def __str__(self):
         return self.login
