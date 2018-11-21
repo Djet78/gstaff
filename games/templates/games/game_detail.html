@@ -16,4 +16,8 @@
     {% for plat in game.platforms.all %}
         <p>{{ plat.name }}</p>
     {% endfor %}
+    <p>Related news:</p>
+    {% for article in game.article_set.all %}
+        <a href="{% url 'news:article_detail' article.id %}"> <p>{{ article.title }}</p></a>
+    {% endfor %}
 {% endblock content %}
