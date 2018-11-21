@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from django.utils import timezone
 
 
 USER_NICKNAME_COUNTER = 0
@@ -35,10 +34,11 @@ class CustomUser(AbstractBaseUser):
     nickname = models.CharField(max_length=40, blank=True)
     email = models.EmailField(unique=True)
     avatar = models.ImageField(upload_to='users_avatars', null=True, blank=True)
-    date_joined = models.DateField(default=timezone.now, editable=False)
+    date_joined = models.DateField(auto_now_add=True, editable=False)
+    is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_redactor = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=True)
+
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'login'

@@ -36,7 +36,7 @@ class UserCreationForm(forms.ModelForm):
 
 class UserChangeForm(forms.ModelForm):
     """A form for updating users. Includes all the fields on
-    the user, but replaces the password field with admin's
+    the user, except 'date_joined', but replaces the password field with admin's
     password hash display field.
     """
     password = ReadOnlyPasswordHashField()
@@ -60,11 +60,11 @@ class UserAdmin(BaseUserAdmin):
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
-    list_display = ('login', 'nickname', 'email', 'date_joined',)
+    list_display = ('login', 'nickname', 'email', 'date_joined', 'is_admin', 'is_redactor')
     list_filter = ('is_admin', 'is_redactor')
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        ('Personal info', {'fields': ('nickname', 'date_joined', 'avatar')}),
+        ('Personal info', {'fields': ('nickname', 'avatar', )}),
         ('Permissions', {'fields': ('is_admin', 'is_redactor')}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
@@ -76,8 +76,9 @@ class UserAdmin(BaseUserAdmin):
          ),
     )
     search_fields = ('email', 'nickname',)
-    ordering = ('-date_joined',)
+    ordering = ()
     filter_horizontal = ()
+
 
 # Now register the new UserAdmin...
 admin.site.register(CustomUser, UserAdmin)
