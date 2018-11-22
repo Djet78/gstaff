@@ -2,9 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
-USER_NICKNAME_COUNTER = 0
-
-
 class CustomUserManager(BaseUserManager):
 
     def _create_user(self, login, email, password, nickname, **extra_fields):
@@ -46,14 +43,6 @@ class CustomUser(AbstractBaseUser):
 
     class Meta:
         ordering = ['-date_joined']
-
-    def save(self, *args, **kwargs):
-        """ Creates nickname for every user who left nickname field blank """
-        if not self.nickname:
-            global USER_NICKNAME_COUNTER
-            USER_NICKNAME_COUNTER += 1
-            self.nickname = f'User{USER_NICKNAME_COUNTER}'
-        super().save(*args, **kwargs)
 
     # TODO finish implementations of methods below
     def has_perm(self, perm, obj=None):
