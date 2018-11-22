@@ -4,6 +4,7 @@ from .models import Genre, Game, Studio, Platform
 
 class GameAdmin(admin.ModelAdmin):
     list_display = ('name', 'release_date', 'studio', 'platforms_list', 'genres_list', )
+    search_fields = ('name', 'platforms__name', 'genres__name', 'studio__name', )
 
     def platforms_list(self, obj):
         """ Represents platforms for particular game on admin page """

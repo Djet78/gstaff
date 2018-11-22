@@ -75,7 +75,7 @@ class UserAdmin(BaseUserAdmin):
             'fields': ('login', 'nickname', 'password1', 'password2', 'email')}
          ),
     )
-    search_fields = ('email', 'nickname',)
+    search_fields = ('email', 'login',)
     ordering = ()
     filter_horizontal = ()
 
