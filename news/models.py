@@ -20,6 +20,7 @@ class Comment(models.Model):
                                 blank=True,
                                 on_delete=models.CASCADE)
     add_date = models.DateTimeField(auto_now_add=True)
+    # TODO Discuss with Kirill about adding a complaints on comments. Maybe create relative "Complaint" table?
 
     def __str__(self):
         return f'{self.pk}: {self.owner}'

@@ -11,7 +11,7 @@
             <img src="{{ article.image.url }}">
         {% endif %}
         <p>{{ article.pub_date }}</p>
-        <p><a href="{% url 'article_detail' article.id %}">More</a></p>
+        <p><a href="{% url 'news:article_detail' article.id %}">More</a></p>
         <hr>
     {% empty %}
         No news
