@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, Comment
+from .models import Article, Comment, Complaint
 
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -11,5 +11,10 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('pk', 'owner', 'add_date', 'article', 'replies', )
 
 
+class ComplainAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'user', )
+
+
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Comment, CommentAdmin)
+admin.site.register(Complaint, ComplainAdmin)
