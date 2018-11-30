@@ -28,7 +28,7 @@ class CustomUserManager(BaseUserManager):
 
 class CustomUser(AbstractBaseUser):
     login = models.CharField(max_length=50, unique=True)
-    nickname = models.CharField(max_length=40, blank=True)
+    nickname = models.CharField(max_length=40, blank=True, default='User')
     email = models.EmailField(unique=True)
     avatar = models.ImageField(upload_to='users_avatars', null=True, blank=True)
     date_joined = models.DateField(auto_now_add=True, editable=False)

@@ -1,26 +1,28 @@
 from django.conf import settings
 from django.db import models
 from games.models import Game
+from users.models import CustomUser
+
+
+class Complaint(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    comment = models.ForeignKey('Comment', on_delete=models.CASCADE)
+    content = models.TextField()
 
 
 class Comment(models.Model):
-    # TODO figure out how to implement relations with itself (May be try recursion in view and extract context?)
-    # May be Articles should refer to comments and comments should refer to themselves
-    # And afterwards i may use {% as? cycle silent %}??
-    # forloop.parentloop ??
     article = models.ForeignKey('Article',
+                                null=True,
+                                blank=True,
+                                on_delete=models.CASCADE)
+    replies = models.ForeignKey('self',
                                 null=True,
                                 blank=True,
                                 on_delete=models.CASCADE)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     content = models.TextField()
     votes = models.IntegerField(default=0)
-    replies = models.ForeignKey('self',
-                                null=True,
-                                blank=True,
-                                on_delete=models.CASCADE)
     add_date = models.DateTimeField(auto_now_add=True)
-    # TODO Discuss with Kirill about adding a complaints on comments. Maybe create relative "Complaint" table?
 
     def __str__(self):
         return f'{self.pk}: {self.owner}'
