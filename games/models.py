@@ -5,7 +5,7 @@ from gstaff.validators import day_is_not_future
 class Studio(models.Model):
     name = models.CharField(unique=True, max_length=50)
     foundation_date = models.DateField(validators=[day_is_not_future])
-    description = models.TextField()
+    description = models.TextField(default='No description.')
 
     class Meta:
         ordering = ['name']
@@ -16,7 +16,7 @@ class Studio(models.Model):
 
 class Genre(models.Model):
     name = models.CharField(unique=True, max_length=50)
-    description = models.TextField()
+    description = models.TextField(default='No description.')
 
     class Meta:
         ordering = ['name']
@@ -27,6 +27,7 @@ class Genre(models.Model):
 
 class Platform(models.Model):
     name = models.CharField(unique=True, max_length=50)
+    description = models.TextField(default='No description.')
 
     class Meta:
         ordering = ['name']
@@ -46,3 +47,6 @@ class Game(models.Model):
 
     class Meta:
         ordering = ['-release_date']
+
+    def __str__(self):
+        return self.name

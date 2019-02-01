@@ -34,7 +34,7 @@ class CustomUser(AbstractBaseUser):
     date_joined = models.DateField(auto_now_add=True, editable=False)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-    is_redactor = models.BooleanField(default=False)
+    is_editor = models.BooleanField(default=False)
 
     objects = CustomUserManager()
 
@@ -59,7 +59,7 @@ class CustomUser(AbstractBaseUser):
     def is_staff(self):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
-        return self.is_admin or self.is_redactor
+        return self.is_admin or self.is_editor
 
     def __str__(self):
         return self.login

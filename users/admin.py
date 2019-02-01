@@ -43,7 +43,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ('email', 'password', 'login', 'is_active', 'is_admin', 'avatar', 'nickname', 'is_redactor')
+        fields = ('email', 'password', 'login', 'is_active', 'is_admin', 'avatar', 'nickname', 'is_editor')
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.
@@ -60,12 +60,12 @@ class UserAdmin(BaseUserAdmin):
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
-    list_display = ('login', 'nickname', 'email', 'date_joined', 'is_admin', 'is_redactor')
-    list_filter = ('is_admin', 'is_redactor')
+    list_display = ('login', 'nickname', 'email', 'date_joined', 'is_admin', 'is_editor')
+    list_filter = ('is_admin', 'is_editor')
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
         ('Personal info', {'fields': ('nickname', 'avatar', )}),
-        ('Permissions', {'fields': ('is_admin', 'is_redactor')}),
+        ('Permissions', {'fields': ('is_admin', 'is_editor')}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
     # overrides get_fieldsets to use this attribute when creating a user.

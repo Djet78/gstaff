@@ -9,6 +9,9 @@ class Complaint(models.Model):
     comment = models.ForeignKey('Comment', on_delete=models.CASCADE)
     content = models.TextField()
 
+    def __str__(self):
+        return f'{self.user} {self.pk}'
+
 
 class Comment(models.Model):
     article = models.ForeignKey('Article',
@@ -23,6 +26,9 @@ class Comment(models.Model):
     content = models.TextField()
     votes = models.IntegerField(default=0)
     add_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-add_date']
 
     def __str__(self):
         return f'{self.pk}: {self.owner}'
