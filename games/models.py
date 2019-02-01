@@ -3,7 +3,7 @@ from gstaff.validators import day_is_not_future
 
 
 class Studio(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(unique=True, max_length=50)
     foundation_date = models.DateField(validators=[day_is_not_future])
     description = models.TextField()
 
@@ -15,8 +15,8 @@ class Studio(models.Model):
 
 
 class Genre(models.Model):
-    name = models.CharField(max_length=50)
-    description = models.TextField(blank=True)
+    name = models.CharField(unique=True, max_length=50)
+    description = models.TextField()
 
     class Meta:
         ordering = ['name']
@@ -26,7 +26,7 @@ class Genre(models.Model):
 
 
 class Platform(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(unique=True, max_length=50)
 
     class Meta:
         ordering = ['name']
@@ -36,7 +36,7 @@ class Platform(models.Model):
 
 
 class Game(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(unique=True, max_length=100)
     release_date = models.DateField()
     studio = models.ForeignKey(Studio, on_delete=models.PROTECT)
     platforms = models.ManyToManyField(Platform)
