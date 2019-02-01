@@ -89,7 +89,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-venv-gstaff
+venv-gstaff/
 
 # Spyder project settings
 .spyderproject
