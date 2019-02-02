@@ -4,15 +4,6 @@ from games.models import Game
 from users.models import CustomUser
 
 
-class Complaint(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    comment = models.ForeignKey('Comment', on_delete=models.CASCADE)
-    content = models.TextField()
-
-    def __str__(self):
-        return f'{self.user} {self.pk}'
-
-
 class Comment(models.Model):
     article = models.ForeignKey('Article',
                                 null=True,
@@ -25,13 +16,26 @@ class Comment(models.Model):
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     content = models.TextField()
     votes = models.IntegerField(default=0)
-    add_date = models.DateTimeField(auto_now_add=True)
+    date_added = models.DateTimeField(auto_now_add=True, editable=False)
 
     class Meta:
-        ordering = ['-add_date']
+        ordering = ['-date_added']
 
     def __str__(self):
         return f'{self.pk}: {self.owner}'
+
+
+class Complaint(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    content = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True, editable=False)
+
+    class Meta:
+        ordering = ['-date_added']
+
+    def __str__(self):
+        return f'{self.user} {self.pk}'
 
 
 class Article(models.Model):
@@ -39,7 +43,10 @@ class Article(models.Model):
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     pub_date = models.DateField(auto_now_add=True)
     content = models.TextField()
-    game = models.ForeignKey(Game, on_delete=models.PROTECT)
+    game = models.ForeignKey(Game,
+                             null=True,
+                             blank=True,
+                             on_delete=models.PROTECT)
     image = models.ImageField(upload_to='articles_previews')
 
     class Meta:

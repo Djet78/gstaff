@@ -8,11 +8,11 @@ class ArticleAdmin(admin.ModelAdmin):
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'owner', 'add_date', 'article', 'replies', )
+    list_display = ('pk', 'owner', 'date_added', 'article', 'replies', )
 
 
 class ComplainAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'user', )
+    list_display = ('pk', 'user', 'date_added',)
 
 
 admin.site.register(Article, ArticleAdmin)
