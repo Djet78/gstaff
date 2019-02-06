@@ -28,7 +28,10 @@ class CustomUserManager(BaseUserManager):
 
 class CustomUser(AbstractBaseUser):
     login = models.CharField(max_length=50, unique=True)
-    nickname = models.CharField(max_length=40, blank=True, default='User')
+    nickname = models.CharField(max_length=40,
+                                blank=True,
+                                default='User',
+                                help_text="Used as your name on site. That's not unique.")
     email = models.EmailField(unique=True)
     avatar = models.ImageField(upload_to='users_avatars', null=True, blank=True)
     date_joined = models.DateField(auto_now_add=True, editable=False)
@@ -59,7 +62,7 @@ class CustomUser(AbstractBaseUser):
     def is_staff(self):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
-        return self.is_admin or self.is_editor
+        return self.is_admin
 
     def __str__(self):
-        return self.login
+        return self.nickname
