@@ -40,9 +40,9 @@ class Game(models.Model):
     name = models.CharField(unique=True, max_length=100)
     release_date = models.DateField()
     studio = models.ForeignKey(Studio, on_delete=models.PROTECT)
-    platforms = models.ManyToManyField(Platform)
+    platforms = models.ManyToManyField(Platform, related_name='games')
     description = models.TextField()
-    genres = models.ManyToManyField(Genre)
+    genres = models.ManyToManyField(Genre, related_name='games')
     poster = models.ImageField(upload_to='game_posters')
 
     class Meta:
