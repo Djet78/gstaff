@@ -8,14 +8,16 @@ from .models import CustomUser
 
 
 class UserCreationForm(forms.ModelForm):
-    """A form for creating new users. Includes all the required
-    fields, plus a repeated password."""
+    """
+    A form for creating new users on admin site. Includes all the required
+    fields, plus a repeated password.
+    """
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
 
     class Meta:
         model = CustomUser
-        fields = ('email', 'login', 'nickname')
+        fields = ('login', 'email', 'nickname', )
 
     def clean_password2(self):
         # Check that the two password entries match
@@ -35,7 +37,8 @@ class UserCreationForm(forms.ModelForm):
 
 
 class UserChangeForm(forms.ModelForm):
-    """A form for updating users. Includes all the fields on
+    """
+    A form for updating users on admin site. Includes all the fields on
     the user, except 'date_joined', but replaces the password field with admin's
     password hash display field.
     """
@@ -43,7 +46,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ('email', 'password', 'login', 'is_active', 'is_admin', 'avatar', 'nickname', 'is_editor')
+        fields = ('login', 'email', 'password', 'is_active', 'is_admin', 'avatar', 'nickname', 'is_editor')
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.
