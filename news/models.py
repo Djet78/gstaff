@@ -43,10 +43,7 @@ class Article(models.Model):
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     pub_date = models.DateField(auto_now_add=True)
     content = models.TextField()
-    game = models.ForeignKey(Game,
-                             null=True,
-                             blank=True,
-                             on_delete=models.PROTECT)
+    game = models.ForeignKey(Game, on_delete=models.PROTECT)
     image = models.ImageField(upload_to='articles_previews')
 
     class Meta:
