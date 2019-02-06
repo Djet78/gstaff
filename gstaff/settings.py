@@ -93,13 +93,16 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'OPTIONS': {
+            'user_attributes': ('login', 'email', ),
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    # },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
@@ -129,4 +132,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 
+# Settings for customized user model and authentication
+# https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-AUTH_USER_MODEL
+# https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-LOGIN_URL
+
 AUTH_USER_MODEL = 'users.CustomUser'
+
+LOGIN_URL = '/user/login/'
+
+LOGOUT_REDIRECT_URL = ''
