@@ -8,11 +8,13 @@ class Comment(models.Model):
     article = models.ForeignKey('Article',
                                 null=True,
                                 blank=True,
-                                on_delete=models.CASCADE)
+                                on_delete=models.CASCADE,
+                                related_name='comments')
     replies = models.ForeignKey('self',
                                 null=True,
                                 blank=True,
-                                on_delete=models.CASCADE)
+                                on_delete=models.CASCADE,
+                                related_name='comments')
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     content = models.TextField()
     votes = models.IntegerField(default=0)
