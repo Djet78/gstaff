@@ -10,24 +10,26 @@ class Comment(models.Model):
                                 blank=True,
                                 on_delete=models.CASCADE,
                                 related_name='comments')
-    replies = models.ForeignKey('self',
-                                null=True,
-                                blank=True,
-                                on_delete=models.CASCADE,
-                                related_name='comments')
+    reply_to = models.ForeignKey('self',
+                                 null=True,
+                                 blank=True,
+                                 on_delete=models.CASCADE,
+                                 related_name='replies')
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     content = models.TextField()
     votes = models.IntegerField(default=0)
     date_added = models.DateTimeField(auto_now_add=True, editable=False)
 
     class Meta:
-        ordering = ['-date_added']
+        ordering = ['date_added']
 
     def __str__(self):
         return f'{self.pk}: {self.owner}'
 
 
 class Complaint(models.Model):
+    # TODO Tie this model to other instances (Comment, Article, User?)
+    # Maybe create list of choices for all related instances for 'object' attr
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
     content = models.TextField()
