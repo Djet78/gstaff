@@ -6,14 +6,9 @@
 
 {% block content %}
 
-    {% if filter_form.is_multipart %}
-        <form enctype="multipart/form-data" method="GET">
-    {% else %}
-        <form method="GET">
-    {% endif %}
-            {{ filter_form.as_p }}
-            {{ search_form.as_p }}
-            <input type="submit" value="Submit">
+    <form method="GET">
+        {{ search_form.as_p }}
+        <input type="submit" value="Submit">
     </form>
 
     {% for article in articles%}

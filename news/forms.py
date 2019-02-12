@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from .models import Complaint, Comment, Article
-from games.models import Genre, Platform, Studio
+from gstaff.forms import SearchFormMixin
 
 
 class CommentForm(forms.ModelForm):
@@ -31,10 +31,6 @@ class CommentForm(forms.ModelForm):
                 raise ValidationError(exc_msg, code='fake')
 
 
-class SearchForm(forms.Form):
-    search = forms.CharField(max_length=100, required=False)
-
-
 class ComplaintForm(forms.ModelForm):
     class Meta:
         model = Complaint
@@ -47,24 +43,5 @@ class ArticleForm(forms.ModelForm):
         exclude = ('owner', )
 
 
-class FilterNewsForm(forms.Form):
-    # Django throws exception if you explicitly use this list comprehensions below,
-    # before any migrations made.
-    # Error: django.db.utils.OperationalError: no such table: 'table_name'
-    # But with callables works just fine
-
-    platform_name = forms.MultipleChoiceField(
-        choices=lambda: [(obj['name'], obj['name']) for obj in Platform.objects.values('name')],
-        required=False,
-        widget=forms.CheckboxSelectMultiple
-    )
-    studio_name = forms.MultipleChoiceField(
-        choices=lambda: [(obj['name'], obj['name']) for obj in Studio.objects.values('name')],
-        required=False,
-        widget=forms.CheckboxSelectMultiple
-    )
-    genre_name = forms.MultipleChoiceField(
-        choices=lambda: [(obj['name'], obj['name']) for obj in Genre.objects.values('name')],
-        required=False,
-        widget=forms.CheckboxSelectMultiple
-    )
+class SearchNewsForm(SearchFormMixin):
+    field_order = ('search', )

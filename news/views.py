@@ -1,35 +1,31 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import View
 from .models import Article, Comment
-from .forms import CommentForm, FilterNewsForm, SearchForm
+from .forms import CommentForm, SearchNewsForm
 
 
 class ArticleList(View):
     model = Article
     template = 'news/article_list.html'
-    filter_form = FilterNewsForm
-    search_form = SearchForm
+    search_form = SearchNewsForm
 
     def get(self, request, *args, **kwargs):
 
         if not request.GET:
             context = {
-                'filter_form': self.filter_form(),
                 'search_form': self.search_form(),
                 'articles': Article.objects.all(),
             }
         else:
-            search_form = self.search_form(request.GET)
-            filter_form = self.filter_form(request.GET)
+            filter_form = self.search_form(request.GET)
 
             context = {
-                'filter_form': filter_form,
-                'search_form': search_form,
+                'search_form': filter_form,
             }
 
-            if search_form.is_valid() and filter_form.is_valid():
+            if filter_form.is_valid():
 
-                requested = {**search_form.cleaned_data, **filter_form.cleaned_data}
+                requested = {**filter_form.cleaned_data}
 
                 fields_queries_mapping = {
                     'platform_name': 'game__platforms__name__in',
