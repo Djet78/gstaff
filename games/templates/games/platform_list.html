@@ -1,0 +1,20 @@
+{% extends "news/base.html" %}
+
+{% block title %}
+    Platforms
+{% endblock title%}
+
+{% block content %}
+
+    <form method="GET">
+        {{ search_bar.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+
+    {% for plat in platforms %}
+        <h2><a href="{% url 'games:platform_detail' plat.id %}">{{ plat.name }}</a></h2>
+        <hr>
+    {% empty %}
+        No platforms matched
+    {% endfor %}
+{% endblock content %}

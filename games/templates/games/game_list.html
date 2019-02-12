@@ -5,7 +5,13 @@
 {% endblock title%}
 
 {% block content %}
-    {% for g in games%}
+
+    <form method="GET">
+        {{ search_form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+
+    {% for g in games %}
         <h2>{{ g.name }}</h2>
         <img src="{{ g.poster.url }}">
         <p>{{ g.release_date }}</p>

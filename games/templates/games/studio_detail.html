@@ -1,0 +1,18 @@
+{% extends "news/base.html" %}
+
+{% block title %}
+    {{ studio.name|title }}
+{% endblock title%}
+
+{% block content %}
+    <h2>{{ studio.name }}</h2>
+    <p>{{ studio.description }}</p>
+
+    <h4>Games:</h4>
+    {% for game in studio.games.all %}
+        <p><a href="{% url 'games:game_detail' game.id %}">{{ game.name }}</a></p>
+    {% empty %}
+        <p>This studio has no games yet</p>
+    {% endfor %}
+
+{% endblock content %}

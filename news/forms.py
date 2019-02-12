@@ -4,7 +4,7 @@ from .models import Complaint, Comment, Article
 from gstaff.forms import SearchFormMixin
 
 
-class CommentForm(forms.ModelForm):
+class CommentAddForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('content', )
@@ -31,13 +31,13 @@ class CommentForm(forms.ModelForm):
                 raise ValidationError(exc_msg, code='fake')
 
 
-class ComplaintForm(forms.ModelForm):
+class ComplaintAddForm(forms.ModelForm):
     class Meta:
         model = Complaint
         fields = ('content', )
 
 
-class ArticleForm(forms.ModelForm):
+class ArticleCreationForm(forms.ModelForm):
     class Meta:
         model = Article
         exclude = ('owner', )

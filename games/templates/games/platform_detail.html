@@ -1,0 +1,18 @@
+{% extends "news/base.html" %}
+
+{% block title %}
+    {{ platform.name|title }}
+{% endblock title%}
+
+{% block content %}
+    <h2>{{ platform.name }}</h2>
+    <p>{{ platform.description }}</p>
+
+    <h4>Games:</h4>
+    {% for game in platform.games.all %}
+        <a href="{% url 'games:game_detail' game.id %}">{{ game.name }}</a>
+    {% empty %}
+        <p>This platform has no games yet</p>
+    {% endfor %}
+
+{% endblock content %}
