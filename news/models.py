@@ -5,6 +5,8 @@ from users.models import CustomUser
 
 
 class Comment(models.Model):
+    # TODO Tie this model to other instances (Comment, Article, Game?)
+    # Maybe create list of choices for all related instances for 'object' attr
     article = models.ForeignKey('Article',
                                 null=True,
                                 blank=True,
@@ -21,7 +23,7 @@ class Comment(models.Model):
     date_added = models.DateTimeField(auto_now_add=True, editable=False)
 
     class Meta:
-        ordering = ['date_added']
+        ordering = ('date_added', )
 
     def __str__(self):
         return f'{self.pk}: {self.owner}'
@@ -36,7 +38,7 @@ class Complaint(models.Model):
     date_added = models.DateTimeField(auto_now_add=True, editable=False)
 
     class Meta:
-        ordering = ['-date_added']
+        ordering = ('-date_added', )
 
     def __str__(self):
         return f'{self.user} {self.pk}'
@@ -51,7 +53,7 @@ class Article(models.Model):
     image = models.ImageField(upload_to='articles_previews')
 
     class Meta:
-        ordering = ['-pub_date']
+        ordering = ('-pub_date', )
 
     def __str__(self):
         return f'{self.game} {self.title}'

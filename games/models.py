@@ -8,7 +8,7 @@ class Studio(models.Model):
     description = models.TextField(default='No description.')
 
     class Meta:
-        ordering = ['name']
+        ordering = ('name', )
 
     def __str__(self):
         return self.name
@@ -19,7 +19,7 @@ class Genre(models.Model):
     description = models.TextField(default='No description.')
 
     class Meta:
-        ordering = ['name']
+        ordering = ('name', )
 
     def __str__(self):
         return self.name
@@ -30,7 +30,7 @@ class Platform(models.Model):
     description = models.TextField(default='No description.')
 
     class Meta:
-        ordering = ['name']
+        ordering = ('name', )
 
     def __str__(self):
         return self.name
@@ -46,7 +46,7 @@ class Game(models.Model):
     poster = models.ImageField(upload_to='game_posters')
 
     class Meta:
-        ordering = ['-release_date']
+        ordering = ('-release_date', )
 
     def __str__(self):
         return self.name
