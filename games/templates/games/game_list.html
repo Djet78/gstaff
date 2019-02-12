@@ -23,7 +23,7 @@
         {% for plat in g.platforms.all %}
             <p>{{ plat.name }}</p>
         {% endfor %}
-        <p><a href="{% url 'games:game_detail' g.id %}">More</a></p>
+        <p><a href="{% url 'games:game_detail' g.name %}">More</a></p>
         <hr>
     {% empty %}
         No games matched

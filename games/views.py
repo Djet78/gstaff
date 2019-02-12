@@ -43,6 +43,8 @@ class GameDetail(DetailView):
     model = Game
     template_name = 'games/game_detail.html'
     context_object_name = 'game'
+    slug_field = 'name'
+    slug_url_kwarg = 'name'
 
 
 class PlatformList(View):
@@ -76,6 +78,8 @@ class PlatformDetail(DetailView):
     model = Platform
     template_name = 'games/platform_detail.html'
     context_object_name = 'platform'
+    slug_field = 'name'
+    slug_url_kwarg = 'name'
 
 
 class StudioList(View):
@@ -106,12 +110,13 @@ class StudioList(View):
 
 
 class StudioDetail(DetailView):
-    model = Platform
+    model = Studio
     template_name = 'games/studio_detail.html'
     context_object_name = 'studio'
+    slug_field = 'name'
+    slug_url_kwarg = 'name'
 
 
-# ---------------------
 class GenreList(View):
     model = Genre
     template_name = 'games/genre_list.html'
@@ -143,3 +148,6 @@ class GenreDetail(DetailView):
     model = Genre
     template_name = 'games/genre_detail.html'
     context_object_name = 'genre'
+    slug_field = 'name'
+    slug_url_kwarg = 'name'
+

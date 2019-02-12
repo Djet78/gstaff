@@ -12,7 +12,7 @@
     </form>
 
     {% for genre in genres %}
-        <h2><a href="{% url 'games:genre_detail' genre.id %}">{{ genre.name }}</a></h2>
+        <h2><a href="{% url 'games:genre_detail' genre.name %}">{{ genre.name }}</a></h2>
         <hr>
     {% empty %}
         No genres matched
