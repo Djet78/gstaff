@@ -5,13 +5,10 @@
 {% endblock title%}
 
 {% block content %}
-    {% if form.is_multipart %}
-        <form enctype="multipart/form-data" method="POST">
-    {% else %}
-        <form method="post">
-    {% endif %}
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Submit">
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
     </form>
 {% endblock content %}

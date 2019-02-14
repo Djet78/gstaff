@@ -1,4 +1,6 @@
-from .admin import UserCreationForm, UserChangeForm
+from django import forms
+
+from .admin import UserCreationForm
 from .models import CustomUser
 
 
@@ -8,7 +10,9 @@ class UserRegisterForm(UserCreationForm):
         fields = ('login', 'email', 'nickname', )
 
 
-class UserProfileForm(UserChangeForm):
-    class Meta(UserChangeForm):
+class UserChangeProfileForm(forms.ModelForm):
+    class Meta:
         model = CustomUser
-        fields = ('login', 'email', 'nickname', 'avatar', )
+        fields = ('nickname', 'avatar', )
+
+# TODO Think how to organize sensitive data updating i.e. pass, login and email

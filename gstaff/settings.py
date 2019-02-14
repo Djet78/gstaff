@@ -133,11 +133,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Settings for customized user model and authentication
-# https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-AUTH_USER_MODEL
-# https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-LOGIN_URL
+# https://docs.djangoproject.com/en/2.1/ref/settings/#auth
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-LOGIN_URL = '/user/login/'
+LOGIN_URL = 'users:login'
+LOGIN_REDIRECT_URL = 'users:profile'
 
-LOGOUT_REDIRECT_URL = ''
+LOGOUT_REDIRECT_URL = 'news:article_list'

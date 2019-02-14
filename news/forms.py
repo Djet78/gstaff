@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
+
 from .models import Complaint, Comment, Article
 from gstaff.forms import SearchFormMixin
 
@@ -37,7 +38,7 @@ class ComplaintAddForm(forms.ModelForm):
         fields = ('content', )
 
 
-class ArticleCreationForm(forms.ModelForm):
+class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
         exclude = ('owner', )

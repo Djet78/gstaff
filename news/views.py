@@ -1,7 +1,12 @@
-from django.shortcuts import render, get_object_or_404
-from django.views.generic import View
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render, get_object_or_404
+from django.views.generic import View, DeleteView
+from django.utils.decorators import method_decorator
+from django.urls import reverse_lazy
+
 from .models import Article, Comment
-from .forms import CommentAddForm, SearchNewsForm
+from .forms import ArticleForm, CommentAddForm, SearchNewsForm
+from users.decorators import user_is_editor, user_is_owner
 
 
 class ArticleList(View):
@@ -47,7 +52,7 @@ class ArticleDetail(View):
         }
         return render(request, self.template, context)
 
-    # TODO add restriction: user must be authenticated
+    @method_decorator(login_required)
     def post(self, request, pk, *args, **kwargs):
         article = get_object_or_404(Article, pk=pk)
 
@@ -73,3 +78,83 @@ class ArticleDetail(View):
             'comment_form': self.comment_form,
         }
         return render(request, self.template, context)
+
+
+@method_decorator((login_required, user_is_editor), name='dispatch')
+class EditorsPublicationsView(View):
+    model = Article
+    template_name = 'news/editor_publications.html'
+
+    # TODO may be add some filters for pubs like on main page
+    def get(self, request, *args, **kwargs):
+        articles = self.model.objects.filter(owner__id=request.user.id)
+        context = {'articles': articles}
+        return render(request, self.template_name, context)
+
+
+@method_decorator((login_required, user_is_editor), name='dispatch')
+class ArticleCreateView(View):
+    form = ArticleForm
+    template_name = 'news/article_create.html'
+
+    def get(self, request, *args, **kwargs):
+        context = {'article_form': self.form}
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        article_form = self.form(request.POST, request.FILES)
+
+        if article_form.is_valid():
+            article = article_form.save(commit=False)
+            article.owner = request.user
+            article.save()
+            return redirect(article)
+
+        context = {'article_form': article_form}
+        return render(request, self.template_name, context)
+
+
+class ArticleChangeView(View):
+    model = Article
+    form = ArticleForm
+    template_name = 'news/article_change.html'
+    decoratos = (
+        login_required,
+        user_is_editor,
+        user_is_owner(model, 'owner', 'pk', 'pk'),
+    )
+
+    @method_decorator(decoratos)
+    def dispatch(self, request, *args, **kwargs):
+        article_inst = get_object_or_404(self.model, pk=kwargs['pk'])
+        return super().dispatch(request, article_inst, *args, **kwargs)
+
+    def get(self, request, article_inst, *args, **kwargs):
+        change_form = self.form(instance=article_inst)
+        context = {'article_form': change_form}
+        return render(request, self.template_name, context)
+
+    def post(self, request, article_inst, *args, **kwargs):
+        change_form = self.form(request.POST, request.FILES, instance=article_inst)
+
+        if change_form.is_valid():
+            article = change_form.save()
+            return redirect(article)
+
+        context = {'article_form': change_form}
+        return render(request, self.template_name, context)
+
+
+class ArticleDeleteView(DeleteView):
+    model = Article
+    success_url = reverse_lazy('news:editor_publications')
+
+    decoratos = (
+        login_required,
+        user_is_editor,
+        user_is_owner(model, 'owner', 'pk', 'pk'),
+    )
+
+    @method_decorator(decoratos)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
