@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from gstaff.validators import day_is_not_future
 
 
@@ -13,6 +14,9 @@ class Studio(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('games:studio_detail', kwargs={'name': str(self.name)})
+
 
 class Genre(models.Model):
     name = models.CharField(unique=True, max_length=50)
@@ -24,6 +28,9 @@ class Genre(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('games:genre_detail', kwargs={'name': str(self.name)})
+
 
 class Platform(models.Model):
     name = models.CharField(unique=True, max_length=50)
@@ -34,6 +41,9 @@ class Platform(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('games:platform_detail', kwargs={'name': str(self.name)})
 
 
 class Game(models.Model):
@@ -50,3 +60,6 @@ class Game(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('games:game_detail', kwargs={'name': str(self.name)})

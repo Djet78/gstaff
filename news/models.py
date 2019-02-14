@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 from games.models import Game
 from users.models import CustomUser
 
@@ -57,3 +58,6 @@ class Article(models.Model):
 
     def __str__(self):
         return f'{self.game} {self.title}'
+
+    def get_absolute_url(self):
+        return reverse('news:article_detail', kwargs={'pk': str(self.pk)})
