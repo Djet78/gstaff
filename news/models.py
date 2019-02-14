@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.urls import reverse
+
 from games.models import Game
 from users.models import CustomUser
 
@@ -48,7 +49,7 @@ class Complaint(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=200)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
-    pub_date = models.DateField(auto_now_add=True)
+    pub_date = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
     game = models.ForeignKey(Game, on_delete=models.PROTECT)
     image = models.ImageField(upload_to='articles_previews')
