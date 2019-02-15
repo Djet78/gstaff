@@ -93,6 +93,7 @@ class EditorsPublicationsView(View):
 
 
 @method_decorator((login_required, user_is_editor), name='dispatch')
+# TODO Use same template for Creation and Changing
 class ArticleCreateView(View):
     form = ArticleForm
     template_name = 'news/article_create.html'

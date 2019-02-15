@@ -3,25 +3,25 @@ from .models import Studio, Genre, Platform, Game
 from gstaff.forms import SearchFormMixin, YearRangeForm
 
 
-class StudioCreationForm(ModelForm):
+class StudioForm(ModelForm):
     class Meta:
         model = Studio
         fields = '__all__'
 
 
-class GenreCreationForm(ModelForm):
+class GenreForm(ModelForm):
     class Meta:
         model = Genre
         fields = '__all__'
 
 
-class PlatformCreationForm(ModelForm):
+class PlatformForm(ModelForm):
     class Meta:
         model = Platform
         fields = '__all__'
 
 
-class GameCreationForm(ModelForm):
+class GameForm(ModelForm):
     class Meta:
         model = Game
         fields = '__all__'

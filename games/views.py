@@ -1,9 +1,20 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+from django.http import HttpResponseBadRequest, HttpResponseNotFound
 from django.views.generic import View, DetailView
+from django.utils.decorators import method_decorator
+
 from .models import Game, Platform, Studio, Genre
 from .forms import SearchGamesForm
+from .game_object_resolver import GameObjectResolver
+from object_resolver.exceptions import BadRequestError, NotFoundError
 from gstaff.forms import SearchBarForm
+from users.decorators import user_is_editor
 
+
+# \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+#               Data Displaying Views
+# \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 class GameList(View):
     model = Game
@@ -151,3 +162,100 @@ class GenreDetail(DetailView):
     slug_field = 'name'
     slug_url_kwarg = 'name'
 
+
+# \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+#               Data Manipulating Views
+# \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+@method_decorator((login_required, user_is_editor), name='dispatch')
+class ObjectCreate(GameObjectResolver, View):
+    template_name = 'games/games_object_form.html'
+    context = {'submit_btn': 'Create'}
+
+    def get(self, request, instance_name, *args, **kwargs):
+        try:
+            form = self.get_form(instance_name)
+        except BadRequestError:
+            return HttpResponseBadRequest()
+
+        self.context['form'] = form()
+        return render(request, self.template_name, self.context)
+
+    def post(self, request, instance_name, *args, **kwargs):
+        try:
+            form = self.get_form(instance_name)
+        except BadRequestError:
+            return HttpResponseBadRequest()
+
+        form = form(request.POST)
+        if form.is_valid():
+            obj = form.save()
+            return redirect(obj)
+
+        self.context['form'] = form
+        return render(request, self.template_name, self.context)
+
+
+@method_decorator((login_required, user_is_editor), name='dispatch')
+class ObjectChange(GameObjectResolver, View):
+    template_name = 'games/games_object_form.html'
+    context = {'submit_btn': 'Update'}
+
+    def get(self, request, instance_name, slug, *args, **kwargs):
+        try:
+            instance, form = self.get_obj_form(instance_name, slug)
+        except BadRequestError:
+            return HttpResponseBadRequest()
+        except NotFoundError:
+            return HttpResponseNotFound()
+
+        self.context['form'] = form(instance=instance)
+        return render(request, self.template_name, self.context)
+
+    def post(self, request, instance_name, slug, *args, **kwargs):
+        try:
+            instance, form = self.get_obj_form(instance_name, slug)
+        except BadRequestError:
+            return HttpResponseBadRequest()
+        except NotFoundError:
+            return HttpResponseNotFound()
+
+        form = form(request.POST, request.FILES, instance=instance)
+        if form.is_valid():
+            obj = form.save()
+            return redirect(obj)
+
+        self.context['form'] = form
+        return render(request, self.template_name, self.context)
+
+
+@method_decorator((login_required, user_is_editor), name='dispatch')
+class ObjectDelete(GameObjectResolver, View):
+    template_name = 'games/games_object_confirm_delete.html'
+    success_template_name = 'games/games_object_success_delete.html'
+
+    def get(self, request, instance_name, slug, *args, **kwargs):
+        try:
+            context = {'object': self.get_obj(instance_name, slug)}
+        except BadRequestError:
+            return HttpResponseBadRequest()
+        except NotFoundError:
+            return HttpResponseNotFound()
+
+        return render(request, self.template_name, context)
+
+    def post(self, request, instance_name, slug, *args, **kwargs):
+        try:
+            obj = self.get_obj(instance_name, slug)
+        except BadRequestError:
+            return HttpResponseBadRequest()
+        except NotFoundError:
+            return HttpResponseNotFound()
+
+        res, _ = obj.delete()
+        if res:
+            # TODO Think how i can get to the page with list of objects with the same kind as deleted one.
+            return render(request, self.success_template_name)
+
+        context = {'object': obj}
+        return render(request, self.template_name, context)
