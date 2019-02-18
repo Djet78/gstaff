@@ -8,8 +8,8 @@ class GameObjectResolver(BaseObjectResolver):
     """ Defines games app instances for 'BaseObjectResolver' methods """
 
     URL_INSTANCE_MAPPING = {
-        'game': ObjectContext(Game, GameForm, 'name'),
-        'genre': ObjectContext(Genre, GenreForm, 'name'),
-        'platform': ObjectContext(Platform, PlatformForm, 'name'),
-        'studio': ObjectContext(Studio, StudioForm, 'name'),
+        'games': ObjectContext(Game, GameForm, 'name'),
+        'genres': ObjectContext(Genre, GenreForm, 'name'),
+        'platforms': ObjectContext(Platform, PlatformForm, 'name'),
+        'studios': ObjectContext(Studio, StudioForm, 'name'),
     }
