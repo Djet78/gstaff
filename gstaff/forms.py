@@ -4,6 +4,7 @@ from django.db.models import Min
 from games.models import Game, Genre, Platform, Studio
 
 
+# TODO remove this to related apps
 def get_game_year_choices():
     min_year = Game.objects.aggregate(Min('release_date'))['release_date__min'].year
     curr_year = date.today().year

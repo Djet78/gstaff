@@ -15,8 +15,7 @@ def user_is_editor(function):
 
 
 def user_is_owner(model_obj, fk_model_field, unique_model_field, captured_url_group):
-    """
-    Checks is user is object owner
+    """ Checks is user is object owner
 
     Assume that we have this model:
 
@@ -34,14 +33,15 @@ def user_is_owner(model_obj, fk_model_field, unique_model_field, captured_url_gr
 
     And our view will be:
 
-        @user_is_owner(Car, 'owner', 'pk')
+        @user_is_owner(Car, 'owner', 'pk', 'pk')
         def car_detail(request, *args, **kwargs):
             ...
 
     :param model_obj: Model instance
     :param fk_model_field: Relationship field name
     :param unique_model_field: Is used for 'model_obj.objects.get' method lookup
-    :param captured_url_group: Url capture group which value is used for 'model_obj.objects.get' method
+    :param captured_url_group: Url capture group, which value is used for 'model_obj.objects.get' method
+
     :return: Decorated function if user is model object owner
     """
 

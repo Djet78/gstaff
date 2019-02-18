@@ -1,10 +1,12 @@
-class ObjectOperationError(Exception):
+class BaseObjectResolverError(Exception):
     pass
 
 
-class BadRequestError(ObjectOperationError):
+class BadRequestError(BaseObjectResolverError):
+    """ Raised when user passed non existing values to url. """
     pass
 
 
-class NotFoundError(ObjectOperationError):
+class NotFoundError(BaseObjectResolverError):
+    """ Raised when Django model instance does not exist. """
     pass

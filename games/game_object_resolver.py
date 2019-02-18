@@ -5,9 +5,9 @@ from object_resolver import BaseObjectResolver, ObjectContext
 
 
 class GameObjectResolver(BaseObjectResolver):
-    """ Defines used games app instances for 'ObjectResolver' base class methods """
+    """ Defines games app instances for 'BaseObjectResolver' methods """
 
-    URL_INSTANCES_MAPPING = {
+    URL_INSTANCE_MAPPING = {
         'game': ObjectContext(Game, GameForm, 'name'),
         'genre': ObjectContext(Genre, GenreForm, 'name'),
         'platform': ObjectContext(Platform, PlatformForm, 'name'),

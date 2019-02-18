@@ -254,7 +254,6 @@ class ObjectDelete(GameObjectResolver, View):
 
         res, _ = obj.delete()
         if res:
-            # TODO Think how i can get to the page with list of objects with the same kind as deleted one.
             return render(request, self.success_template_name)
 
         context = {'object': obj}

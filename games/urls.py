@@ -22,5 +22,4 @@ urlpatterns = [
     path('<instance_name>/add/', ObjectCreate.as_view(), name='games_object_crete'),
     path('<instance_name>/<slug>/change/', ObjectChange.as_view(), name='games_object_change'),
     path('<instance_name>/<slug>/delete/', ObjectDelete.as_view(), name='games_object_delete'),
-
 ]
