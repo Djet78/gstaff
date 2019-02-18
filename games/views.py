@@ -7,6 +7,7 @@ from django.utils.decorators import method_decorator
 from .models import Game, Platform, Studio, Genre
 from .forms import SearchGamesForm
 from .game_object_resolver import GameObjectResolver
+from object_filter import ObjectFilter
 from object_resolver.exceptions import BadRequestError, NotFoundError
 from gstaff.forms import SearchBarForm
 from users.decorators import user_is_editor
@@ -15,14 +16,11 @@ from users.decorators import user_is_editor
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 #               Data Displaying Views
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-class GameList(View):
+class GameList(ObjectFilter, View):
     model = Game
     template_name = 'games/game_list.html'
     search_form = SearchGamesForm
 
-    # Used in dynamic filtering below
-    # Keys is form field names, values is django queries
     FIELDS_QUERIES_MAPPING = {
         'platform_name': 'platforms__name__in',
         'studio_name': 'studio__name__in',
@@ -33,19 +31,8 @@ class GameList(View):
     }
 
     def get(self, request, *args, **kwargs):
-        if not request.GET:
-            context = {
-                'search_form': self.search_form(),
-                'games': self.model.objects.all(),
-            }
-        else:
-            search_form = self.search_form(request.GET)
-            context = {'search_form': search_form}
 
-            if search_form.is_valid():
-                requested = {**search_form.cleaned_data}
-                query_params = {self.FIELDS_QUERIES_MAPPING[field]: value for field, value in requested.items() if value}
-                context['games'] = self.model.objects.filter(**query_params)
+        context = self.get_form_queryset_context(request.GET, 'search_form', 'games')
 
         return render(request, self.template_name, context)
 
@@ -58,29 +45,16 @@ class GameDetail(DetailView):
     slug_url_kwarg = 'name'
 
 
-class PlatformList(View):
+class PlatformList(ObjectFilter, View):
     model = Platform
     template_name = 'games/platform_list.html'
-    search_bar_form = SearchBarForm
+    search_form = SearchBarForm
 
-    # Used in dynamic filtering below
-    # Keys is form field names, values is django queries
     FIELDS_QUERIES_MAPPING = {'search': 'name__icontains'}
 
     def get(self, request, *args, **kwargs):
-        if not request.GET:
-            context = {
-                'platforms': self.model.objects.all(),
-                'search_bar': self.search_bar_form()
-            }
-        else:
-            search_form = self.search_bar_form(request.GET)
-            context = {'search_bar': search_form}
 
-            if search_form.is_valid():
-                requested = {**search_form.cleaned_data}
-                query_params = {self.FIELDS_QUERIES_MAPPING[field]: value for field, value in requested.items() if value}
-                context['platforms'] = self.model.objects.filter(**query_params)
+        context = self.get_form_queryset_context(request.GET, 'search_bar', 'platforms')
 
         return render(request, self.template_name, context)
 
@@ -93,29 +67,16 @@ class PlatformDetail(DetailView):
     slug_url_kwarg = 'name'
 
 
-class StudioList(View):
+class StudioList(ObjectFilter, View):
     model = Studio
     template_name = 'games/studio_list.html'
-    search_bar_form = SearchBarForm
+    search_form = SearchBarForm
 
-    # Used in dynamic filtering below
-    # Keys is form field names, values is django queries
     FIELDS_QUERIES_MAPPING = {'search': 'name__icontains'}
 
     def get(self, request, *args, **kwargs):
-        if not request.GET:
-            context = {
-                'studios': self.model.objects.all(),
-                'search_bar': self.search_bar_form()
-            }
-        else:
-            search_form = self.search_bar_form(request.GET)
-            context = {'search_bar': search_form}
 
-            if search_form.is_valid():
-                requested = {**search_form.cleaned_data}
-                query_params = {self.FIELDS_QUERIES_MAPPING[field]: value for field, value in requested.items() if value}
-                context['studios'] = self.model.objects.filter(**query_params)
+        context = self.get_form_queryset_context(request.GET, 'search_bar', 'studios')
 
         return render(request, self.template_name, context)
 
@@ -128,29 +89,16 @@ class StudioDetail(DetailView):
     slug_url_kwarg = 'name'
 
 
-class GenreList(View):
+class GenreList(ObjectFilter, View):
     model = Genre
     template_name = 'games/genre_list.html'
-    search_bar_form = SearchBarForm
+    search_form = SearchBarForm
 
-    # Used in dynamic filtering below
-    # Keys is form field names, values is django queries
     FIELDS_QUERIES_MAPPING = {'search': 'name__icontains'}
 
     def get(self, request, *args, **kwargs):
-        if not request.GET:
-            context = {
-                'genres': self.model.objects.all(),
-                'search_bar': self.search_bar_form()
-            }
-        else:
-            search_form = self.search_bar_form(request.GET)
-            context = {'search_bar': search_form}
 
-            if search_form.is_valid():
-                requested = {**search_form.cleaned_data}
-                query_params = {self.FIELDS_QUERIES_MAPPING[field]: value for field, value in requested.items() if value}
-                context['genres'] = self.model.objects.filter(**query_params)
+        context = self.get_form_queryset_context(request.GET, 'search_bar', 'genres')
 
         return render(request, self.template_name, context)
 
