@@ -4,7 +4,7 @@ from django.views.generic import View, DeleteView
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
 
-from context_generator import ContextGenerator
+from utils import ContextGenerator
 from .models import Article, Comment
 from .forms import ArticleForm, CommentAddForm, SearchNewsForm
 from users.decorators import user_is_editor, user_is_owner

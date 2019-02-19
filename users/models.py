@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
+from utils import thumbnail
+
 
 class CustomUserManager(BaseUserManager):
 
@@ -44,8 +46,16 @@ class CustomUser(AbstractBaseUser):
     USERNAME_FIELD = 'login'
     REQUIRED_FIELDS = ('email', )
 
+    AVATAR_MAX_HEIGHT = 300
+    AVATAR_MAX_WIDTH = 300
+
     class Meta:
         ordering = ('-date_joined', )
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.avatar:
+            thumbnail(self.avatar.path, self.AVATAR_MAX_HEIGHT, self.AVATAR_MAX_WIDTH)
 
     # TODO finish implementations of methods below
     def has_perm(self, perm, obj=None):

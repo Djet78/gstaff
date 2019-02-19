@@ -7,8 +7,8 @@ from django.utils.decorators import method_decorator
 from .models import Game, Platform, Studio, Genre
 from .forms import GamesFilterForm
 from .game_object_resolver import GameObjectResolver
-from context_generator import ContextGenerator
-from object_resolver.exceptions import BadRequestError, NotFoundError
+from utils import ContextGenerator
+from utils.object_resolver.exceptions import BadRequestError, NotFoundError
 from gstaff.forms import SearchBarForm
 from users.decorators import user_is_editor
 
