@@ -2,7 +2,8 @@ from django import forms
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 
 from .models import Complaint, Comment, Article
-from gstaff.forms import SearchFormMixin
+from games.forms import GameFiltersMixin
+from gstaff.forms import SearchBarForm
 
 
 class CommentAddForm(forms.ModelForm):
@@ -44,5 +45,5 @@ class ArticleForm(forms.ModelForm):
         exclude = ('owner', )
 
 
-class SearchNewsForm(SearchFormMixin):
+class SearchNewsForm(GameFiltersMixin, SearchBarForm):
     field_order = ('search', )

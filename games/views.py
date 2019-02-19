@@ -5,7 +5,7 @@ from django.views.generic import View, DetailView
 from django.utils.decorators import method_decorator
 
 from .models import Game, Platform, Studio, Genre
-from .forms import SearchGamesForm
+from .forms import GamesFilterForm
 from .game_object_resolver import GameObjectResolver
 from object_filter import ObjectFilter
 from object_resolver.exceptions import BadRequestError, NotFoundError
@@ -19,7 +19,7 @@ from users.decorators import user_is_editor
 class GameList(ObjectFilter, View):
     model = Game
     template_name = 'games/game_list.html'
-    search_form = SearchGamesForm
+    search_form = GamesFilterForm
 
     FIELDS_QUERIES_MAPPING = {
         'platform_name': 'platforms__name__in',
