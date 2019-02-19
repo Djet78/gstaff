@@ -8,7 +8,8 @@ class ArticleAdmin(admin.ModelAdmin):
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'owner', 'date_added', 'article', 'replies', )
+    list_display = ('pk', 'owner', 'date_added', 'article', 'reply_to', )
+    exclude = ('votes', )
 
 
 class ComplainAdmin(admin.ModelAdmin):

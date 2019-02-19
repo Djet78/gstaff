@@ -1,0 +1,18 @@
+{% extends "news/base.html" %}
+
+{% block title %}
+    {{ genre.name|title }}
+{% endblock title%}
+
+{% block content %}
+    <h2>{{ genre.name }}</h2>
+    <p>{{ genre.description }}</p>
+
+    <h4>Games:</h4>
+    {% for game in genre.games.all %}
+        <p><a href="{% url 'games:game_detail' game.id %}">{{ game.name }}</a></p>
+    {% empty %}
+        <p>This genre has no games yet</p>
+    {% endfor %}
+
+{% endblock content %}

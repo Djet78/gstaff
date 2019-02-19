@@ -42,10 +42,10 @@ class CustomUser(AbstractBaseUser):
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'login'
-    REQUIRED_FIELDS = ['email', ]
+    REQUIRED_FIELDS = ('email', )
 
     class Meta:
-        ordering = ['-date_joined']
+        ordering = ('-date_joined', )
 
     # TODO finish implementations of methods below
     def has_perm(self, perm, obj=None):
@@ -58,6 +58,7 @@ class CustomUser(AbstractBaseUser):
         # Simplest possible answer: Yes, always
         return True
 
+    # TODO maybe delete method below and use 'is_admin' and 'is_editor' attr-s
     @property
     def is_staff(self):
         "Is the user a member of staff?"

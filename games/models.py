@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from gstaff.validators import day_is_not_future
 
 
@@ -8,10 +9,13 @@ class Studio(models.Model):
     description = models.TextField(default='No description.')
 
     class Meta:
-        ordering = ['name']
+        ordering = ('name', )
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('games:studio_detail', kwargs={'name': str(self.name)})
 
 
 class Genre(models.Model):
@@ -19,10 +23,13 @@ class Genre(models.Model):
     description = models.TextField(default='No description.')
 
     class Meta:
-        ordering = ['name']
+        ordering = ('name', )
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('games:genre_detail', kwargs={'name': str(self.name)})
 
 
 class Platform(models.Model):
@@ -30,23 +37,29 @@ class Platform(models.Model):
     description = models.TextField(default='No description.')
 
     class Meta:
-        ordering = ['name']
+        ordering = ('name', )
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('games:platform_detail', kwargs={'name': str(self.name)})
 
 
 class Game(models.Model):
     name = models.CharField(unique=True, max_length=100)
     release_date = models.DateField()
     studio = models.ForeignKey(Studio, on_delete=models.PROTECT)
-    platforms = models.ManyToManyField(Platform)
+    platforms = models.ManyToManyField(Platform, related_name='games')
     description = models.TextField()
-    genres = models.ManyToManyField(Genre)
+    genres = models.ManyToManyField(Genre, related_name='games')
     poster = models.ImageField(upload_to='game_posters')
 
     class Meta:
-        ordering = ['-release_date']
+        ordering = ('-release_date', )
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('games:game_detail', kwargs={'name': str(self.name)})

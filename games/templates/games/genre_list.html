@@ -1,0 +1,20 @@
+{% extends "news/base.html" %}
+
+{% block title %}
+    Genres
+{% endblock title%}
+
+{% block content %}
+
+    <form method="GET">
+        {{ search_bar.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+
+    {% for genre in genres %}
+        <h2><a href="{{ genre.get_absolute_url }}">{{ genre.name }}</a></h2>
+        <hr>
+    {% empty %}
+        No genres matched
+    {% endfor %}
+{% endblock content %}

@@ -5,6 +5,7 @@
 {% endblock title%}
 
 {% block content %}
+
     <h2>{{ article.title }}</h2>
     {% if article.image %}
         <img src="{{ article.image.url }}">
@@ -12,6 +13,38 @@
     <p>{{ article.pub_date }}</p>
     <p>{{ article.content }}</p>
     <p>{{ article.game.name }}</p>
-{% endblock content %}
 
+    <p>Leave a comment:</p>
+    <form method="POST">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <input type="submit" value="Comment">
+    </form>
+
+
+    <h3>Comments:</h3>
+    {% for comment in article.comments.all %}
+        <p>{{ comment.owner }}</p>
+        <p>{{ comment.content }}</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" value="{{ comment.id }}" name="parent_comment_id">
+            {{ comment_form.as_p }}
+            <input type="submit" value="Reply" name="reply_comment">
+        </form>
+
+        <ol>
+            {% for reply in comment.replies.all %}
+                <li>
+                    <p>{{ reply.owner }}</p>
+                    <p>{{ reply.content }}</p>
+                </li>
+            {% endfor %}
+        </ol>
+        <hr>
+    {% empty %}
+        <p>No comments!</p>
+    {% endfor %}
+{% endblock content %}
 
