@@ -7,6 +7,10 @@ from .models import Studio, Genre, Platform, Game
 from gstaff.forms import SearchBarForm
 
 
+# \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+#               Games Model Forms
+# \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
 class StudioForm(forms.ModelForm):
     class Meta:
         model = Studio
@@ -31,7 +35,9 @@ class GameForm(forms.ModelForm):
         fields = '__all__'
 
 
-# --------------------------------------------------
+# \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+#               Data Filtering Forms
+# \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 def get_game_year_choices(prepend_empty=True, empty_val=('', '----')):
     """ Creates list years from oldest game in DB, to current year.

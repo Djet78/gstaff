@@ -7,7 +7,7 @@ from django.utils.decorators import method_decorator
 from .models import Game, Platform, Studio, Genre
 from .forms import GamesFilterForm
 from .game_object_resolver import GameObjectResolver
-from object_filter import ObjectFilter
+from context_generator import ContextGenerator
 from object_resolver.exceptions import BadRequestError, NotFoundError
 from gstaff.forms import SearchBarForm
 from users.decorators import user_is_editor
@@ -16,7 +16,8 @@ from users.decorators import user_is_editor
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 #               Data Displaying Views
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-class GameList(ObjectFilter, View):
+
+class GameList(ContextGenerator, View):
     model = Game
     template_name = 'games/game_list.html'
     search_form = GamesFilterForm
@@ -45,7 +46,7 @@ class GameDetail(DetailView):
     slug_url_kwarg = 'name'
 
 
-class PlatformList(ObjectFilter, View):
+class PlatformList(ContextGenerator, View):
     model = Platform
     template_name = 'games/platform_list.html'
     search_form = SearchBarForm
@@ -67,7 +68,7 @@ class PlatformDetail(DetailView):
     slug_url_kwarg = 'name'
 
 
-class StudioList(ObjectFilter, View):
+class StudioList(ContextGenerator, View):
     model = Studio
     template_name = 'games/studio_list.html'
     search_form = SearchBarForm
@@ -89,7 +90,7 @@ class StudioDetail(DetailView):
     slug_url_kwarg = 'name'
 
 
-class GenreList(ObjectFilter, View):
+class GenreList(ContextGenerator, View):
     model = Genre
     template_name = 'games/genre_list.html'
     search_form = SearchBarForm

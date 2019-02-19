@@ -4,18 +4,17 @@ from django.views.generic import View, DeleteView
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
 
+from context_generator import ContextGenerator
 from .models import Article, Comment
 from .forms import ArticleForm, CommentAddForm, SearchNewsForm
 from users.decorators import user_is_editor, user_is_owner
 
 
-class ArticleList(View):
+class ArticleList(ContextGenerator, View):
     model = Article
     template_name = 'news/article_list.html'
     search_form = SearchNewsForm
 
-    # Used in dynamic filtering below
-    # Keys is form field names, values is django queries
     FIELDS_QUERIES_MAPPING = {
         'platform_name': 'game__platforms__name__in',
         'studio_name': 'game__studio__name__in',
@@ -24,19 +23,8 @@ class ArticleList(View):
     }
 
     def get(self, request, *args, **kwargs):
-        if not request.GET:
-            context = {
-                'search_form': self.search_form(),
-                'articles': self.model.objects.all(),
-            }
-        else:
-            search_form = self.search_form(request.GET)
-            context = {'search_form': search_form}
 
-            if search_form.is_valid():
-                requested = {**search_form.cleaned_data}
-                query_params = {self.FIELDS_QUERIES_MAPPING[field]: value for field, value in requested.items() if value}
-                context['articles'] = self.model.objects.filter(**query_params)
+        context = self.get_form_queryset_context(request.GET, 'search_form', 'articles')
 
         return render(request, self.template_name, context)
 

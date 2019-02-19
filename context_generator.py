@@ -1,4 +1,4 @@
-class ObjectFilter:
+class ContextGenerator:
     """ Implements 'get_context' method, which returns template context. Includes form and filtered queryset
 
     Used overwritten subclass variables to filter objects queryset:
