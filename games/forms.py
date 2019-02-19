@@ -48,7 +48,7 @@ def get_game_year_choices(prepend_empty=True, empty_val=('', '----')):
     :keyword prepend_empty: if set to True (default). List will have empty value at the beginning.
     :keyword empty_val: Value that will be set at the beginning of a list default: ('', '----')
 
-    :returns list of year tuples. Optionally with prepended empty value
+    :return: list of year tuples. Optionally with prepended empty value
     """
     min_year = Game.objects.aggregate(Min('release_date'))['release_date__min'].year
     curr_year = date.today().year

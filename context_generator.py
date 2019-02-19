@@ -18,28 +18,29 @@ class ContextGenerator:
     model = None
     search_form = None
 
-    def get_form_queryset_context(self, requested, form_name, obj_context_name):
+    def get_form_queryset_context(self, requested, form_context_name, queryset_context_name):
         """ Return context dictionary with form and queryset
 
-        Filter queryset depending on given 'requested' dict
+        Filter queryset depending on given 'requested' dict.
+        If requested is empty - returns 'model.objects.all()' as queryset context
 
         :param requested: request.GET or request.POST dict
-        :param form_name: this value will be set to a form context name
-        :param obj_context_name: this value will be set to a queryset context name
+        :param form_context_name: this value will be set to a form context name
+        :param queryset_context_name: this value will be set to a queryset context name
 
         :return: {form_name: self.search_form, obj_context_name: filtered_queryset}
         """
         if not requested:
             context = {
-                form_name: self.search_form(),
-                obj_context_name: self.model.objects.all(),
+                form_context_name: self.search_form(),
+                queryset_context_name: self.model.objects.all(),
             }
         else:
             search_form = self.search_form(requested)
-            context = {form_name: search_form}
+            context = {form_context_name: search_form}
 
             if search_form.is_valid():
                 requested = {**search_form.cleaned_data}
                 query_params = {self.FIELDS_QUERIES_MAPPING[field]: value for field, value in requested.items() if value}
-                context[obj_context_name] = self.model.objects.filter(**query_params)
+                context[queryset_context_name] = self.model.objects.filter(**query_params)
         return context
