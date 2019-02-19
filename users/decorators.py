@@ -14,16 +14,14 @@ def user_is_editor(function):
     return wrapper
 
 
-def user_is_owner(model_obj, fk_model_field, unique_model_field, captured_url_group):
+def user_is_owner(model, fk_model_field, unique_model_field, captured_url_group):
     """ Checks is user is object owner
 
     Assume that we have this model:
 
         class Car(models.Model):
             owner = models.ForeignKey(UserModel)
-            ...
-            other fields
-            ...
+            other fields...
     
     This url pattern:
 
@@ -37,7 +35,7 @@ def user_is_owner(model_obj, fk_model_field, unique_model_field, captured_url_gr
         def car_detail(request, *args, **kwargs):
             ...
 
-    :param model_obj: Model instance
+    :param model: Model instance
     :param fk_model_field: Relationship field name
     :param unique_model_field: Is used for 'model_obj.objects.get' method lookup
     :param captured_url_group: Url capture group, which value is used for 'model_obj.objects.get' method
@@ -49,7 +47,7 @@ def user_is_owner(model_obj, fk_model_field, unique_model_field, captured_url_gr
         @wraps(function)
         def wrapper(request, *args, **kwargs):
             query_params = {unique_model_field: kwargs[captured_url_group]}
-            requested_instance = get_object_or_404(model_obj, **query_params)
+            requested_instance = get_object_or_404(model, **query_params)
             actual_owner = getattr(requested_instance, fk_model_field, None)
             if actual_owner == request.user:
                 return function(request, *args, **kwargs)
