@@ -1,0 +1,62 @@
+[
+  {
+    "model": "games.studio",
+    "pk": 1,
+    "fields": {
+      "name": "Blizzard",
+      "logo": "studio_logos/blizzard_logo_by_tardifice-d9gbb7d.png",
+      "foundation_date": "2019-02-19",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,"
+    }
+  },
+  {
+    "model": "games.studio",
+    "pk": 2,
+    "fields": {
+      "name": "RIOT Games",
+      "logo": "studio_logos/Riot_Games_logo.png",
+      "foundation_date": "2013-01-10",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate"
+    }
+  },
+  {
+    "model": "games.studio",
+    "pk": 3,
+    "fields": {
+      "name": "Activision",
+      "logo": "studio_logos/Activision.png",
+      "foundation_date": "2003-01-12",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer"
+    }
+  },
+  {
+    "model": "games.studio",
+    "pk": 4,
+    "fields": {
+      "name": "EA",
+      "logo": "studio_logos/EA.jpg",
+      "foundation_date": "2000-08-12",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer"
+    }
+  },
+  {
+    "model": "games.studio",
+    "pk": 5,
+    "fields": {
+      "name": "CD Project",
+      "logo": "studio_logos/CD_Project.png",
+      "foundation_date": "2003-01-12",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut"
+    }
+  },
+  {
+    "model": "games.studio",
+    "pk": 6,
+    "fields": {
+      "name": "Valve",
+      "logo": "studio_logos/Valve-logo.jpg",
+      "foundation_date": "1998-01-12",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo."
+    }
+  }
+]
