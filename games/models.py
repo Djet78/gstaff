@@ -5,7 +5,19 @@ from utils import thumbnail
 from utils.validators import day_is_not_future
 
 
+class NaturalKeyManager(models.Manager):
+    """ Implements only 'get_by_natural_key' method using 'name' model field name
+
+    I use it since all games models can be referenced by 'name' model field
+    and don't have other specific features
+    """
+    def get_by_natural_key(self, name):
+        return self.get(name=name)
+
+
 class Studio(models.Model):
+    objects = NaturalKeyManager()
+
     name = models.CharField(unique=True, max_length=50)
     logo = models.ImageField(upload_to='studio_logos')
     foundation_date = models.DateField(validators=[day_is_not_future])
@@ -27,8 +39,13 @@ class Studio(models.Model):
     def get_absolute_url(self):
         return reverse('games:studio_detail', kwargs={'name': str(self.name)})
 
+    def natural_key(self):
+        return (self.name, )
+
 
 class Genre(models.Model):
+    objects = NaturalKeyManager()
+
     name = models.CharField(unique=True, max_length=50)
     description = models.TextField(default='No description.')
 
@@ -41,8 +58,13 @@ class Genre(models.Model):
     def get_absolute_url(self):
         return reverse('games:genre_detail', kwargs={'name': str(self.name)})
 
+    def natural_key(self):
+        return (self.name, )
+
 
 class Platform(models.Model):
+    objects = NaturalKeyManager()
+
     name = models.CharField(unique=True, max_length=50)
     photo = models.ImageField(upload_to='platform_photos')
     description = models.TextField(default='No description.')
@@ -63,8 +85,13 @@ class Platform(models.Model):
     def get_absolute_url(self):
         return reverse('games:platform_detail', kwargs={'name': str(self.name)})
 
+    def natural_key(self):
+        return (self.name, )
+
 
 class Game(models.Model):
+    objects = NaturalKeyManager()
+
     name = models.CharField(unique=True, max_length=100)
     release_date = models.DateField()
     studio = models.ForeignKey(Studio, on_delete=models.PROTECT)
@@ -88,3 +115,6 @@ class Game(models.Model):
 
     def get_absolute_url(self):
         return reverse('games:game_detail', kwargs={'name': str(self.name)})
+
+    def natural_key(self):
+        return (self.name, )

@@ -8,11 +8,13 @@ class ArticleAdmin(admin.ModelAdmin):
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'owner', 'date_added', 'article', 'reply_to', )
+    # TODO Turn off the ability of creation comments on admin page before run in production
+    list_display = ('pk', 'owner', 'date_added', 'article', 'game', 'reply_to', )
     exclude = ('votes', )
 
 
 class ComplainAdmin(admin.ModelAdmin):
+    # TODO Turn off the ability of creation complaints on admin page before run in production
     list_display = ('pk', 'user', 'date_added',)
 
 

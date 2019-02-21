@@ -3,17 +3,19 @@ from django.db import models
 from django.urls import reverse
 
 from games.models import Game
-from users.models import CustomUser
 
 
 class Comment(models.Model):
-    # TODO Tie this model to other instances (Comment, Article, Game?)
-    # Maybe create list of choices for all related instances for 'object' attr
     article = models.ForeignKey('Article',
                                 null=True,
                                 blank=True,
                                 on_delete=models.CASCADE,
                                 related_name='comments')
+    game = models.ForeignKey(Game,
+                             null=True,
+                             blank=True,
+                             on_delete=models.CASCADE,
+                             related_name='comments')
     reply_to = models.ForeignKey('self',
                                  null=True,
                                  blank=True,
@@ -32,10 +34,19 @@ class Comment(models.Model):
 
 
 class Complaint(models.Model):
-    # TODO Tie this model to other instances (Comment, Article, User?)
-    # Maybe create list of choices for all related instances for 'object' attr
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    ARTICLE = 'a'
+    COMMENT = 'c'
+    GAME = 'g'
+
+    OBJ_CHOICES = (
+        (ARTICLE, 'article'),
+        (COMMENT, 'comment'),
+        (GAME, 'game'),
+    )
+
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    obj = models.CharField(max_length=1, choices=OBJ_CHOICES)
+    obj_id = models.IntegerField()
     content = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True, editable=False)
 
