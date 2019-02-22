@@ -26,6 +26,8 @@ class Studio(models.Model):
     LOGO_MAX_HEIGHT = 300
     LOGO_MAX_WIDTH = 300
 
+    FILE_FIELDS = ('logo', )
+
     class Meta:
         ordering = ('name', )
 
@@ -72,6 +74,8 @@ class Platform(models.Model):
     PHOTO_MAX_LENGTH = 300
     PHOTO_MAX_WIDTH = 300
 
+    FILE_FIELDS = ('photo', )
+
     class Meta:
         ordering = ('name', )
 
@@ -102,6 +106,8 @@ class Game(models.Model):
 
     POSTER_MAX_LENGTH = 400
     POSTER_MAX_WIDTH = 600
+
+    FILE_FIELDS = ('poster', )
 
     class Meta:
         ordering = ('-release_date', )
