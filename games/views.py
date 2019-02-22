@@ -1,16 +1,16 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponseBadRequest, HttpResponseNotFound
-from django.views.generic import View, DetailView
 from django.utils.decorators import method_decorator
+from django.views.generic import View, DetailView
 
 from .models import Game, Platform, Studio, Genre
 from .forms import GamesFilterForm
 from .game_object_resolver import GameObjectResolver
-from utils import ContextGenerator
-from utils.object_resolver.exceptions import BadRequestError, NotFoundError
 from gstaff.forms import SearchBarForm
 from users.decorators import user_is_editor
+from utils import ContextGenerator
+from utils.object_resolver.exceptions import BadRequestError, NotFoundError
 
 
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

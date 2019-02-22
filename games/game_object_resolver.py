@@ -1,6 +1,5 @@
 from games.models import Game, Genre, Platform, Studio
 from games.forms import GameForm, GenreForm, PlatformForm, StudioForm
-
 from utils.object_resolver import BaseObjectResolver, ObjectContext
 
 
