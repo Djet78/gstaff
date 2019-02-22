@@ -37,7 +37,7 @@ class Studio(models.Model):
         thumbnail(self.logo.path, self.LOGO_MAX_HEIGHT, self.LOGO_MAX_WIDTH)
 
     def get_absolute_url(self):
-        return reverse('games:studio_detail', kwargs={'name': str(self.name)})
+        return reverse('games:studio_detail', kwargs={'name': self.name})
 
     def natural_key(self):
         return (self.name, )
@@ -56,7 +56,7 @@ class Genre(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('games:genre_detail', kwargs={'name': str(self.name)})
+        return reverse('games:genre_detail', kwargs={'name': self.name})
 
     def natural_key(self):
         return (self.name, )
@@ -83,7 +83,7 @@ class Platform(models.Model):
         thumbnail(self.photo.path, self.PHOTO_MAX_LENGTH, self.PHOTO_MAX_WIDTH)
 
     def get_absolute_url(self):
-        return reverse('games:platform_detail', kwargs={'name': str(self.name)})
+        return reverse('games:platform_detail', kwargs={'name': self.name})
 
     def natural_key(self):
         return (self.name, )
@@ -114,7 +114,7 @@ class Game(models.Model):
         thumbnail(self.poster.path, self.POSTER_MAX_LENGTH, self.POSTER_MAX_WIDTH)
 
     def get_absolute_url(self):
-        return reverse('games:game_detail', kwargs={'name': str(self.name)})
+        return reverse('games:game_detail', kwargs={'name': self.name})
 
     def natural_key(self):
         return (self.name, )
