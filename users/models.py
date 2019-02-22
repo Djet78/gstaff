@@ -52,6 +52,9 @@ class CustomUser(AbstractBaseUser):
     class Meta:
         ordering = ('-date_joined', )
 
+    def __str__(self):
+        return self.nickname
+
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         if self.avatar:
@@ -67,13 +70,10 @@ class CustomUser(AbstractBaseUser):
         "Does the user have permissions to view the app `app_label`?"
         # Simplest possible answer: Yes, always
         return True
-
     # TODO maybe delete method below and use 'is_admin' and 'is_editor' attr-s
+
     @property
     def is_staff(self):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
-
-    def __str__(self):
-        return self.nickname

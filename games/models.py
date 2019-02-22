@@ -29,12 +29,12 @@ class Studio(models.Model):
     class Meta:
         ordering = ('name', )
 
+    def __str__(self):
+        return self.name
+
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         thumbnail(self.logo.path, self.LOGO_MAX_HEIGHT, self.LOGO_MAX_WIDTH)
-
-    def __str__(self):
-        return self.name
 
     def get_absolute_url(self):
         return reverse('games:studio_detail', kwargs={'name': str(self.name)})
@@ -75,12 +75,12 @@ class Platform(models.Model):
     class Meta:
         ordering = ('name', )
 
+    def __str__(self):
+        return self.name
+
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         thumbnail(self.photo.path, self.PHOTO_MAX_LENGTH, self.PHOTO_MAX_WIDTH)
-
-    def __str__(self):
-        return self.name
 
     def get_absolute_url(self):
         return reverse('games:platform_detail', kwargs={'name': str(self.name)})
@@ -106,12 +106,12 @@ class Game(models.Model):
     class Meta:
         ordering = ('-release_date', )
 
+    def __str__(self):
+        return self.name
+
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         thumbnail(self.poster.path, self.POSTER_MAX_LENGTH, self.POSTER_MAX_WIDTH)
-
-    def __str__(self):
-        return self.name
 
     def get_absolute_url(self):
         return reverse('games:game_detail', kwargs={'name': str(self.name)})
