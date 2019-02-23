@@ -2,6 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 
+from utils import thumbnail
 from games.models import Game
 
 
@@ -65,11 +66,20 @@ class Article(models.Model):
     game = models.ForeignKey(Game, on_delete=models.PROTECT)
     image = models.ImageField(upload_to='articles_previews')
 
+    IMAGE_MAX_LENGTH = 300
+    IMAGE_MAX_WIDTH = 500
+
+    FILE_FIELDS = ('image', )
+
     class Meta:
         ordering = ('-pub_date', )
 
     def __str__(self):
         return f'{self.game} {self.title}'
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        thumbnail(self.image.path, self.IMAGE_MAX_LENGTH, self.IMAGE_MAX_WIDTH)
 
     def get_absolute_url(self):
         return reverse('news:article_detail', kwargs={'pk': str(self.pk)})

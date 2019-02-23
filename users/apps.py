@@ -12,6 +12,6 @@ class UsersConfig(AppConfig):
 
         post_delete.connect(handle_files_on_delete, sender=CustomUser, dispatch_uid='user_files_post_delete')
 
-        pre_save.connect(set_instance_cache, sender=CustomUser, dispatch_uid='user_file_path_cache')
+        pre_save.connect(set_instance_cache, sender=CustomUser, dispatch_uid='user_files_path_cache')
 
-        post_save.connect(handle_files_on_update, sender=CustomUser, dispatch_uid='user_files_post_update')
+        post_save.connect(handle_files_on_update, sender=CustomUser, dispatch_uid='user_files_post_save')

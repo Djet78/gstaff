@@ -59,7 +59,7 @@ def handle_files_on_update(sender, instance, **kwargs):
         deletables = []
         for field, new_path in _field_path_gen(sender, instance):
             old_path = instance.files_cache[field]
-            if not old_path == new_path:
+            if old_path != new_path:
                 deletables.append(old_path)
 
         if deletables:
