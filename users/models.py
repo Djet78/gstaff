@@ -49,6 +49,8 @@ class CustomUser(AbstractBaseUser):
     AVATAR_MAX_HEIGHT = 300
     AVATAR_MAX_WIDTH = 300
 
+    FILE_FIELDS = ('avatar', )
+
     class Meta:
         ordering = ('-date_joined', )
 

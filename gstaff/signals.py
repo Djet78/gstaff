@@ -13,9 +13,8 @@ def _field_path_gen(sender, instance):
     """
     for file_field in sender.FILE_FIELDS:
         file = getattr(instance, file_field)
-        # TODO Here code breaks in case that user has no avatar
-        # path = file.path if file._file is not None else ''
-        yield (file_field, file.path)
+        if file.name:  # prevent fails when file wasn't specified for old instance
+            yield (file_field, file.path)
 
 
 def _delete_files(file_pathways):
