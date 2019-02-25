@@ -78,7 +78,7 @@ class CustomUser(AbstractBaseUser):
 
     @property
     def is_staff(self):
-        return self.is_admin or self.is_editor
+        return self.is_admin
 
     @property
     def warnings(self):
