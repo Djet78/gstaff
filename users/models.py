@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.db import models
 
 from utils import thumbnail
 
@@ -8,7 +8,7 @@ class CustomUserManager(BaseUserManager):
 
     def _create_user(self, login, email, password, nickname, **extra_fields):
         if not login or not email:
-            raise ValueError('Users must provide login and email')
+            raise ValueError('Users must provide login and email.')
 
         user = self.model(
             email=self.normalize_email(email),
@@ -40,6 +40,7 @@ class CustomUser(AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_editor = models.BooleanField(default=False)
+    _warnings = models.IntegerField(default=0, verbose_name='warnings')
 
     objects = CustomUserManager()
 
@@ -51,6 +52,9 @@ class CustomUser(AbstractBaseUser):
 
     FILE_FIELDS = ('avatar', )
 
+    # If user exceed this amount, user will be banned.
+    MAX_WARNINGS = 5
+
     class Meta:
         ordering = ('-date_joined', )
 
@@ -58,24 +62,39 @@ class CustomUser(AbstractBaseUser):
         return self.nickname
 
     def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
         if self.avatar:
             thumbnail(self.avatar.path, self.AVATAR_MAX_HEIGHT, self.AVATAR_MAX_WIDTH)
+        if self._warnings >= self.MAX_WARNINGS:
+            self.ban()
+        super().save(*args, **kwargs)
 
-    # TODO finish implementations of methods below
+    # 'has_perm' and 'has_module_perms' used for Django admin page access only.
+    # You'll no longer be able to get there if you remove them.
     def has_perm(self, perm, obj=None):
-        "Does the user have a specific permission?"
-        # Simplest possible answer: Yes, always
-        return True
+        return self.is_admin
 
     def has_module_perms(self, app_label):
-        "Does the user have permissions to view the app `app_label`?"
-        # Simplest possible answer: Yes, always
-        return True
-    # TODO maybe delete method below and use 'is_admin' and 'is_editor' attr-s
+        return self.is_admin
 
     @property
     def is_staff(self):
-        "Is the user a member of staff?"
-        # Simplest possible answer: All admins are staff
-        return self.is_admin
+        return self.is_admin or self.is_editor
+
+    @property
+    def warnings(self):
+        return self._warnings
+
+    def add_warning(self):
+        self._warnings += 1
+
+    def reset_warnings(self):
+        self._warnings = 0
+
+    def ban(self):
+        """ Sets 'is_active" to: False. """
+        self.is_active = False
+
+    def unban(self):
+        """ Sets '_warnings' to: 0 , and  'is_active" to: True. """
+        self.reset_warnings()
+        self.is_active = True
