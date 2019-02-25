@@ -136,7 +136,7 @@ class ObjectCreate(GameObjectResolver, View):
         except BadRequestError:
             return HttpResponseBadRequest()
 
-        form = form(request.POST)
+        form = form(request.POST, request.FILES)
         if form.is_valid():
             obj = form.save()
             return redirect(obj)
