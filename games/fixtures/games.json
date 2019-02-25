@@ -4,6 +4,8 @@
     "fields": {
         "name": "LOL",
         "release_date": "2014-02-20",
+        "sys_min": "2 GHz single core processor\r\n1 GB of RAM (2GB for Windows Vista or newer)\r\n8 GB of hard drive space\r\nGraphics card that supports DirectX 9.0c or above and shader version 2.0",
+        "sys_req": "3 GHz single core processor\r\n2 GB of RAM (4 GB for Windows Vista or newer)\r\n12 GB available hard disk space\r\nGraphics card with 512MB or higher VRAM and supports DirectX 9.0c",
         "studio": [
             "RIOT Games"
         ],
@@ -37,6 +39,8 @@
     "fields": {
         "name": "Witcher",
         "release_date": "2008-07-13",
+        "sys_min": "CPU: Intel Pentium 4 2.4 GHz or Athlon 64 +2800\r\nCPU SPEED: 2.4 GHz\r\nRAM: 1 GB\r\nOS: Windows XP/Vista\r\nVIDEO CARD: NVIDIA GeForce 6600 or ATI Radeon 9800 or better\r\nTOTAL VIDEO RAM: 128 MB\r\n3D: Yes\r\nHARDWARE T&L: Yes\r\nPIXEL SHADER: 2.0\r\nVERTEX SHADER: 2.0\r\nSOUND CARD: Yes\r\nFREE DISK SPACE: 8.5 GB",
+        "sys_req": "CPU: Intel Pentium 4 3.0 GHz or AMD Athlon 64 +3000 recommended\r\nCPU SPEED: 3.0 GHz\r\nRAM: 2 GB\r\nOS: Windows XP/Vista\r\nVIDEO CARD: NVIDIA GeForce 7800 GTX or ATI Radeon X1950 XT or better recommended\r\nTOTAL VIDEO RAM: 128 MB\r\n3D: Yes\r\nHARDWARE T&L: Yes\r\nPIXEL SHADER: 3.0\r\nVERTEX SHADER: 3.0\r\nSOUND CARD: Yes\r\nFREE DISK SPACE: 8.5 GB",
         "studio": [
             "CD Project"
         ],
@@ -70,6 +74,8 @@
     "fields": {
         "name": "Witcher 2",
         "release_date": "2016-02-20",
+        "sys_min": "OS: Windows XP SP2 / Windows Vista SP2 / Windows 7 (32/64-bit)\r\nProcessor: Intel Core 2 Duo 2.2 Ghz or AMD Athlon 64 X2 5000+\r\nMemory: 1 GB Windows XP / 2 GB Windows Vista and Windows 7\r\nVideo Card: 512 MB RAM, supporting Pixel Shader 3.0 (NVIDIA GeForce 8800)\r\nSound Card: compatible with DirectX 9.0c\r\nHDD: 16 GB of disc space\r\nDisc Drive: DVD x8, compatible with DVD9",
+        "sys_req": "OS: Windows XP SP2 / Windows Vista SP2 / Windows 7 (32/64-bit)\r\nProcessor: Intel Core 2 Quad or AMD Phenom X4\r\nMemory: 3 GB Windows XP / 4 GB Windows Vista and Windows 7\r\nVideo Card: 1 GB RAM, supporting Pixel Shader 3.0 (NVIDIA GeForce GTX 260)\r\nSound Card: compatible with DirectX 9.0c\r\nHDD: 16 GB of disc space\r\nDisc Drive: DVD x8, compatible with DVD9",
         "studio": [
             "CD Project"
         ],
@@ -112,6 +118,8 @@
     "fields": {
         "name": "Witcher 3",
         "release_date": "2018-02-28",
+        "sys_min": "CPU: Intel CPU Core i5-2500K 3.3GHz / AMD CPU Phenom II X4 940\r\nCPU SPEED: Info\r\nRAM: 6 GB\r\nOS: 64-bit Windows 7 or 64-bit Windows 8 (8.1)\r\nVIDEO CARD: Nvidia GPU GeForce GTX 660 / AMD GPU Radeon HD 7870\r\nPIXEL SHADER: 5.0\r\nVERTEX SHADER: 5.0\r\nFREE DISK SPACE: 40 GB\r\nDEDICATED VIDEO RAM: 1.5 GB",
+        "sys_req": "CPU: Intel CPU Core i7 3770 3.4 GHz / AMD CPU AMD FX-8350 4 GHz\r\nCPU SPEED: Info\r\nRAM: 8 GB\r\nOS: 64-bit Windows 7 or 64-bit Windows 8 (8.1)\r\nVIDEO CARD: Nvidia GPU GeForce GTX 770 / AMD GPU Radeon R9 290\r\nPIXEL SHADER: 5.0\r\nVERTEX SHADER: 5.0\r\nFREE DISK SPACE: 40 GB\r\nDEDICATED VIDEO RAM: 2 GB",
         "studio": [
             "CD Project"
         ],
@@ -157,6 +165,8 @@
     "fields": {
         "name": "Fallout 4",
         "release_date": "2017-02-20",
+        "sys_min": "OS: Windows 7/8/10 (64-bit OS required)\r\nProcessor: Intel Core i5-2300 2.8 GHz/AMD Phenom II X4 945 3.0 GHz or equivalent\r\nGraphics Card: NVIDIA GTX 550 Ti 2GB/AMD Radeon HD 7870 2GB or equivalent\r\nMemory: 8 GB RAM\r\nStorage: 30 GB free HDD space",
+        "sys_req": "OS: Windows 7/8/10 (64-bit OS required)\r\nProcessor: Intel Core i7 4790 3.6 GHz/AMD FX-9590 4.7 GHz or equivalent\r\nGraphics Card: NVIDIA GTX 780 3GB/AMD Radeon R9 290X 4GB or equivalent\r\nMemory: 8 GB RAM\r\nStorage: 30 GB free HDD space",
         "studio": [
             "Bethesda"
         ],
@@ -196,6 +206,8 @@
     "fields": {
         "name": "Mass Effect",
         "release_date": "2011-11-07",
+        "sys_min": "CPU: 2.4+ GHz Intel or 2.0+ GHz AMD\r\nCPU SPEED: 2.4+ GHz Intel or 2.0+ GHz AMD\r\nRAM: 1GB RAM (XP)/2GB Ram (Vista)\r\nOS: Windows XP / Vista / 7\r\nVIDEO CARD: NVIDIA GeForce 6 series (6800 GT or better), ATI X1300 XT or better (X1550, X1600 Pro and HD2400 are below minimum system requirements)\r\n3D: Yes\r\nHARDWARE T&L: Yes\r\nPIXEL SHADER: 3.0\r\nVERTEX SHADER: 3.0\r\nDIRECTX VERSION: 9.0c\r\nSOUND CARD: Yes\r\nFREE DISK SPACE: 12 GB",
+        "sys_req": "CPU: 2.6+ GHz Intel or 2.4+ GHz AMD\r\nCPU SPEED: 2.6+ GHz Intel or 2.4+ GHz AMD\r\nRAM: 2 GB\r\nOS: Windows XP / Vista / 7\r\nVIDEO CARD: ATI X1800 XL series or higher, NVIDIA GeForce 7900 GTX or higher\r\n3D: Yes\r\nHARDWARE T&L: Yes\r\nPIXEL SHADER: 3.0\r\nVERTEX SHADER: 3.0\r\nDIRECTX VERSION: 9.0c\r\nSOUND CARD: Yes\r\nFREE DISK SPACE: 12 GB",
         "studio": [
             "BioWare"
         ],
@@ -241,6 +253,8 @@
     "fields": {
         "name": "Thief",
         "release_date": "2014-05-11",
+        "sys_min": "OS: Windows Vista with platform update\r\nCPU: High-performance dual core CPU or quad core CPU\r\nRAM: 4 GB\r\nGraphics Card: AMD Radeon 4800 series / Nvidia GTS 250\r\nDirectX: DirectX 10\r\nHDD/SSD: 20 GB",
+        "sys_req": "OS: Windows 7 or 8\r\nCPU: AMD FX 8000 series or better / Intel i7 Quad Core CPU\r\nRAM: 4+ GB\r\nGraphics Card: AMD Radeon HD / R9 series or better / Nvidia GTX 660 series or better\r\nDirectX: DirectX 11\r\nHDD/SSD: 20 GB",
         "studio": [
             "Eidos Montreal"
         ],
@@ -283,6 +297,8 @@
     "fields": {
         "name": "Bulletstorm",
         "release_date": "2010-04-12",
+        "sys_min": "Processor Intel Core 2 Duo, AMD Athlon X2, or equivalent, running at 1.6 GHz or greater\r\nMemory (RAM) 1.5 GB\r\nVideo Card DirectX 9.0c compatible, 256 MB of VRAM; NVIDIA GeForce 7600 GS, ATI Radeon HD 2400 Pro 256 MB, or greater\r\nHDD Space 9 GB available\r\nOperating System Windows XP (SP3), Windows Vista (SP2), or Windows 7\r\nSoundcard DirectX 9.0c compatible, 16-bit\r\nDisc Drive 16X CD/DVD Drive\r\nNetwork Internet (TCP/IP) connection",
+        "sys_req": "Processor QuadCore 2.0 GHz\r\nMemory (RAM) 2 GB\r\nVideo Card DirectX 9.0c compatible, 512MB of VRAM; NVIDIA GeForce GTX260, or ATI Radeon 4870\r\nHDD Space 9 GB available\r\nOperating System Windows Vista (SP2), or Windows 7\r\nSoundcard DirectX 9.0c compatible, 16-bit\r\nDisc Drive 16X CD/DVD Drive\r\nNetwork Broadband Internet (TCP/IP) connection",
         "studio": [
             "Epic Games"
         ],
