@@ -18,6 +18,8 @@ class ContextGenerator:
     model = None
     search_form = None
 
+    # TODO May be split this on smaller funcs
+    # TODO Change returned value to tuple (form, queryset)
     def get_form_queryset_context(self, requested, form_context_name, queryset_context_name):
         """ Return context dictionary with form and queryset
 
@@ -41,6 +43,8 @@ class ContextGenerator:
 
             if search_form.is_valid():
                 requested = {**search_form.cleaned_data}
-                query_params = {self.FIELDS_QUERIES_MAPPING[field]: value for field, value in requested.items() if value}
+                query_params = {
+                    self.FIELDS_QUERIES_MAPPING[field]: value for field, value in requested.items() if value
+                }
                 context[queryset_context_name] = self.model.objects.filter(**query_params)
         return context
