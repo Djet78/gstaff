@@ -57,6 +57,12 @@ class Complaint(models.Model):
     def __str__(self):
         return f'{self.user} {self.pk}'
 
+    def make_complain(self, user_inst, obj_short_name, obj_pk, body):
+        Complaint.objects.create(user=user_inst,
+                                 obj=obj_short_name,
+                                 obj_id=obj_pk,
+                                 content=body)
+
 
 class Article(models.Model):
     title = models.CharField(max_length=200)

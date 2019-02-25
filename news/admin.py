@@ -15,7 +15,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 class ComplainAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'user', 'date_added',)
+    list_display = ('pk', 'user', 'date_added', 'obj', 'obj_id')
 
 
 admin.site.register(Article, ArticleAdmin)
