@@ -2,7 +2,7 @@ import os
 
 
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-#              File Deleting Signals
+#              File Delete Signals
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 def _field_path_gen(sender, instance):

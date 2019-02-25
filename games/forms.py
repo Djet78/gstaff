@@ -3,7 +3,7 @@ from datetime import date
 from django import forms
 from django.db.models import Min
 
-from .models import Studio, Genre, Platform, Game
+from .models import Game, Genre, Platform, Publisher, Studio
 from gstaff.forms import SearchBarForm
 
 
@@ -11,9 +11,9 @@ from gstaff.forms import SearchBarForm
 #               Games Model Forms
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-class StudioForm(forms.ModelForm):
+class GameForm(forms.ModelForm):
     class Meta:
-        model = Studio
+        model = Game
         fields = '__all__'
 
 
@@ -29,9 +29,15 @@ class PlatformForm(forms.ModelForm):
         fields = '__all__'
 
 
-class GameForm(forms.ModelForm):
+class PublisherForm(forms.ModelForm):
     class Meta:
-        model = Game
+        model = Publisher
+        fields = '__all__'
+
+
+class StudioForm(forms.ModelForm):
+    class Meta:
+        model = Studio
         fields = '__all__'
 
 

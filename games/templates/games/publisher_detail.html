@@ -1,0 +1,18 @@
+{% extends "news/base.html" %}
+
+{% block title %}
+    {{ publisher.name|title }}
+{% endblock title%}
+
+{% block content %}
+    <h2>{{ publisher.name }}</h2>
+    <p>{{ publisher.description }}</p>
+
+    <h4>Games:</h4>
+    {% for game in publisher.games.all %}
+        <p><a href="{% url 'games:game_detail' game.id %}">{{ game.name }}</a></p>
+    {% empty %}
+        <p>This publisher don't publish anything yet</p>
+    {% endfor %}
+
+{% endblock content %}

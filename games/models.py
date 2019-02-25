@@ -15,6 +15,37 @@ class NaturalKeyManager(models.Manager):
         return self.get(name=name)
 
 
+class Publisher(models.Model):
+    objects = NaturalKeyManager()
+
+    name = models.CharField(unique=True, max_length=50)
+    logo = models.ImageField(upload_to='publisher_logos')
+    foundation_date = models.DateField(validators=[day_is_not_future])
+    description = models.TextField(default='No description.')
+    url = models.URLField(blank=True, null=True)
+
+    LOGO_MAX_HEIGHT = 300
+    LOGO_MAX_WIDTH = 300
+
+    FILE_FIELDS = ('logo', )
+
+    class Meta:
+        ordering = ('name', )
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        thumbnail(self.logo.path, self.LOGO_MAX_HEIGHT, self.LOGO_MAX_WIDTH)
+
+    def get_absolute_url(self):
+        return reverse('games:publisher_detail', kwargs={'name': self.name})
+
+    def natural_key(self):
+        return (self.name, )
+
+
 class Studio(models.Model):
     objects = NaturalKeyManager()
 
@@ -22,6 +53,7 @@ class Studio(models.Model):
     logo = models.ImageField(upload_to='studio_logos')
     foundation_date = models.DateField(validators=[day_is_not_future])
     description = models.TextField(default='No description.')
+    url = models.URLField(blank=True, null=True)
 
     LOGO_MAX_HEIGHT = 300
     LOGO_MAX_WIDTH = 300
@@ -99,6 +131,7 @@ class Game(models.Model):
     name = models.CharField(unique=True, max_length=100)
     release_date = models.DateField()
     studio = models.ForeignKey(Studio, on_delete=models.PROTECT)
+    publishers = models.ManyToManyField(Publisher, related_name='games')
     platforms = models.ManyToManyField(Platform, related_name='games')
     description = models.TextField()
     genres = models.ManyToManyField(Genre, related_name='games')
