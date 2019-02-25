@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.conf import settings
 
 from .models import Article, Comment, Complaint
 
@@ -9,16 +10,15 @@ class ArticleAdmin(admin.ModelAdmin):
 
 
 class CommentAdmin(admin.ModelAdmin):
-    # TODO Turn off the ability of creation comments on admin page before run in production
     list_display = ('pk', 'owner', 'date_added', 'article', 'game', 'reply_to', )
     exclude = ('votes', )
 
 
 class ComplainAdmin(admin.ModelAdmin):
-    # TODO Turn off the ability of creation complaints on admin page before run in production
     list_display = ('pk', 'user', 'date_added',)
 
 
 admin.site.register(Article, ArticleAdmin)
-admin.site.register(Comment, CommentAdmin)
-admin.site.register(Complaint, ComplainAdmin)
+if settings.DEBUG:
+    admin.site.register(Comment, CommentAdmin)
+    admin.site.register(Complaint, ComplainAdmin)
