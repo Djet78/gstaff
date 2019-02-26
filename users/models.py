@@ -68,7 +68,7 @@ class CustomUser(AbstractBaseUser):
             self.ban()
         super().save(*args, **kwargs)
 
-    # 'has_perm' and 'has_module_perms' used for Django admin page access only.
+    # 'has_perm', 'has_module_perms', and 'is_staff' used for Django admin page access.
     # You'll no longer be able to get there if you remove them.
     def has_perm(self, perm, obj=None):
         return self.is_admin
