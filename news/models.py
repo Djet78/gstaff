@@ -57,11 +57,16 @@ class Complaint(models.Model):
     def __str__(self):
         return f'{self.user} {self.pk}'
 
-    def make_complain(self, user_inst, obj_short_name, obj_pk, body):
-        Complaint.objects.create(user=user_inst,
-                                 obj=obj_short_name,
-                                 obj_id=obj_pk,
-                                 content=body)
+    @staticmethod
+    def make_complain(user_inst, obj_short_name, obj_pk, body):
+        """ Creates and returns complaint obj. If obj was not created returns False. """
+        try:
+            return Complaint.objects.create(user=user_inst,
+                                            obj=obj_short_name,
+                                            obj_id=obj_pk,
+                                            content=body)
+        except ValueError:
+            return False
 
 
 class Article(models.Model):
