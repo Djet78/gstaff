@@ -1,0 +1,20 @@
+{% extends "news/base.html" %}
+
+{% block title %}
+    Publishers
+{% endblock title%}
+
+{% block content %}
+
+    <form method="GET">
+        {{ search_bar.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+
+    {% for pub in publishers %}
+        <h2><a href="{{ pub.get_absolute_url }}">{{ pub.name }}</a></h2>
+        <hr>
+    {% empty %}
+        No publishers matched
+    {% endfor %}
+{% endblock content %}

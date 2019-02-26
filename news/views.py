@@ -1,12 +1,12 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
-from django.views.generic import View, DeleteView
-from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.generic import View, DeleteView
 
-from context_generator import ContextGenerator
 from .models import Article, Comment
 from .forms import ArticleForm, CommentAddForm, SearchNewsForm
+from utils import ContextGenerator
 from users.decorators import user_is_editor, user_is_owner
 
 

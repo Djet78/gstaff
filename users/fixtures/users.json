@@ -1,0 +1,114 @@
+[
+{
+    "model": "users.customuser",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$120000$K6LEpevmhyFp$kx52sSSEjBAQghye7mFx0Og1g6pQNUWL5lpXi6mrzMY=",
+        "last_login": "2019-02-21T14:44:54.086Z",
+        "login": "admin",
+        "nickname": "Admin",
+        "email": "test@test.com",
+        "avatar": "",
+        "date_joined": "2019-02-21",
+        "is_active": true,
+        "is_admin": true,
+        "is_editor": false
+    }
+},
+{
+    "model": "users.customuser",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$120000$w6W6aEI7Hkee$QlQDueeEaT7a9fr7fhslc3ajScquogY4awlp79SBNRI=",
+        "last_login": null,
+        "login": "Akabos",
+        "nickname": "Akabos",
+        "email": "test@test.test2",
+        "avatar": "users_avatars/242850-stranger.jpg",
+        "date_joined": "2019-02-21",
+        "is_active": true,
+        "is_admin": false,
+        "is_editor": false
+    }
+},
+{
+    "model": "users.customuser",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$120000$v8CbzLYEeRx0$2kWvN6L1tACkEzWj7dc0L0QnvHEOYSst+UUk0nD6970=",
+        "last_login": null,
+        "login": "test",
+        "nickname": "User",
+        "email": "test@test.test3",
+        "avatar": "users_avatars/depositphotos_95467638-stock-illustration-doodle-heart-design-element-mandala.jpg",
+        "date_joined": "2019-02-21",
+        "is_active": true,
+        "is_admin": false,
+        "is_editor": false
+    }
+},
+{
+    "model": "users.customuser",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$120000$lqrz7QoUNyNn$yHW+R2oFPxNeT+SWrMak2/ynXYyJp+7GnHZLdp5pvFs=",
+        "last_login": null,
+        "login": "editor",
+        "nickname": "Awesome Editor",
+        "email": "editor@editor.editor",
+        "avatar": "users_avatars/aEy3Vk20okA.jpg",
+        "date_joined": "2019-02-21",
+        "is_active": true,
+        "is_admin": false,
+        "is_editor": true
+    }
+},
+{
+    "model": "users.customuser",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$120000$lWs1T7Telxxe$41/QiGJqkBavxKGxba3I67psK415gP+BTAsYe/IwxKQ=",
+        "last_login": null,
+        "login": "editor2",
+        "nickname": "Even More Awesome Editor",
+        "email": "editor@test.test",
+        "avatar": "users_avatars/full1323270943.jpg",
+        "date_joined": "2019-02-21",
+        "is_active": true,
+        "is_admin": false,
+        "is_editor": true
+    }
+},
+{
+    "model": "users.customuser",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$120000$F1WsSvLeLyAY$NlBFhiDfpt/gjXDfJq1ztpVVivmwj9KerzSF+MP4Kwc=",
+        "last_login": null,
+        "login": "user",
+        "nickname": "Not an User",
+        "email": "user@test.test",
+        "avatar": "",
+        "date_joined": "2019-02-21",
+        "is_active": true,
+        "is_admin": false,
+        "is_editor": false
+    }
+},
+{
+    "model": "users.customuser",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$120000$Y0VTjlzWTu13$AJGJ+On6Sd+h13JoBwQLNF0sBPAXHU5S+wlFCMwhNIc=",
+        "last_login": null,
+        "login": "user_2",
+        "nickname": "Cool User",
+        "email": "test@user.test",
+        "avatar": "users_avatars/serduszko-skrzydla-paski-czarno-biale-196065.jpg",
+        "date_joined": "2019-02-21",
+        "is_active": true,
+        "is_admin": false,
+        "is_editor": false
+    }
+}
+]

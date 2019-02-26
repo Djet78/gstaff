@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.conf import settings
+
 from .models import Article, Comment, Complaint
 
 
@@ -8,14 +10,15 @@ class ArticleAdmin(admin.ModelAdmin):
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'owner', 'date_added', 'article', 'reply_to', )
+    list_display = ('pk', 'owner', 'date_added', 'article', 'game', 'reply_to', )
     exclude = ('votes', )
 
 
 class ComplainAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'user', 'date_added',)
+    list_display = ('pk', 'user', 'date_added', 'obj', 'obj_id')
 
 
 admin.site.register(Article, ArticleAdmin)
-admin.site.register(Comment, CommentAdmin)
-admin.site.register(Complaint, ComplainAdmin)
+if settings.DEBUG:
+    admin.site.register(Comment, CommentAdmin)
+    admin.site.register(Complaint, ComplainAdmin)

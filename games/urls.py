@@ -1,10 +1,12 @@
 from django.urls import path, include
+
 from .views import (
     GameList, GameDetail,
     GenreList, GenreDetail,
     PlatformList, PlatformDetail,
+    PublisherList, PublisherDetail,
     StudioList, StudioDetail,
-    ObjectCreate, ObjectChange, ObjectDelete
+    ObjectCreate, ObjectChange, ObjectDelete,
 )
 
 app_name = 'games'
@@ -25,6 +27,10 @@ urlpatterns = [
     path('genres/', include([
         path('', GenreList.as_view(), name='genre_list'),
         path('<name>/', GenreDetail.as_view(), name='genre_detail'),
+    ])),
+    path('publishers/', include([
+        path('', PublisherList.as_view(), name='publisher_list'),
+        path('<name>/', PublisherDetail.as_view(), name='publisher_detail'),
     ])),
     path('<instance_name>/', include([
         path('add/', ObjectCreate.as_view(), name='games_object_crete'),

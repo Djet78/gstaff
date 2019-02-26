@@ -1,16 +1,16 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponseBadRequest, HttpResponseNotFound
-from django.views.generic import View, DetailView
 from django.utils.decorators import method_decorator
+from django.views.generic import View, DetailView
 
-from .models import Game, Platform, Studio, Genre
+from .models import Game, Genre, Platform, Publisher, Studio
 from .forms import GamesFilterForm
 from .game_object_resolver import GameObjectResolver
-from context_generator import ContextGenerator
-from object_resolver.exceptions import BadRequestError, NotFoundError
 from gstaff.forms import SearchBarForm
 from users.decorators import user_is_editor
+from utils import ContextGenerator
+from utils.object_resolver.exceptions import BadRequestError, NotFoundError
 
 
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -46,6 +46,28 @@ class GameDetail(DetailView):
     slug_url_kwarg = 'name'
 
 
+class GenreList(ContextGenerator, View):
+    model = Genre
+    template_name = 'games/genre_list.html'
+    search_form = SearchBarForm
+
+    FIELDS_QUERIES_MAPPING = {'search': 'name__icontains'}
+
+    def get(self, request, *args, **kwargs):
+
+        context = self.get_form_queryset_context(request.GET, 'search_bar', 'genres')
+
+        return render(request, self.template_name, context)
+
+
+class GenreDetail(DetailView):
+    model = Genre
+    template_name = 'games/genre_detail.html'
+    context_object_name = 'genre'
+    slug_field = 'name'
+    slug_url_kwarg = 'name'
+
+
 class PlatformList(ContextGenerator, View):
     model = Platform
     template_name = 'games/platform_list.html'
@@ -68,6 +90,28 @@ class PlatformDetail(DetailView):
     slug_url_kwarg = 'name'
 
 
+class PublisherList(ContextGenerator, View):
+    model = Publisher
+    template_name = 'games/publisher_list.html'
+    search_form = SearchBarForm
+
+    FIELDS_QUERIES_MAPPING = {'search': 'name__icontains'}
+
+    def get(self, request, *args, **kwargs):
+
+        context = self.get_form_queryset_context(request.GET, 'search_bar', 'publishers')
+
+        return render(request, self.template_name, context)
+
+
+class PublisherDetail(DetailView):
+    model = Publisher
+    template_name = 'games/publisher_detail.html'
+    context_object_name = 'publisher'
+    slug_field = 'name'
+    slug_url_kwarg = 'name'
+
+
 class StudioList(ContextGenerator, View):
     model = Studio
     template_name = 'games/studio_list.html'
@@ -86,28 +130,6 @@ class StudioDetail(DetailView):
     model = Studio
     template_name = 'games/studio_detail.html'
     context_object_name = 'studio'
-    slug_field = 'name'
-    slug_url_kwarg = 'name'
-
-
-class GenreList(ContextGenerator, View):
-    model = Genre
-    template_name = 'games/genre_list.html'
-    search_form = SearchBarForm
-
-    FIELDS_QUERIES_MAPPING = {'search': 'name__icontains'}
-
-    def get(self, request, *args, **kwargs):
-
-        context = self.get_form_queryset_context(request.GET, 'search_bar', 'genres')
-
-        return render(request, self.template_name, context)
-
-
-class GenreDetail(DetailView):
-    model = Genre
-    template_name = 'games/genre_detail.html'
-    context_object_name = 'genre'
     slug_field = 'name'
     slug_url_kwarg = 'name'
 
@@ -136,7 +158,7 @@ class ObjectCreate(GameObjectResolver, View):
         except BadRequestError:
             return HttpResponseBadRequest()
 
-        form = form(request.POST)
+        form = form(request.POST, request.FILES)
         if form.is_valid():
             obj = form.save()
             return redirect(obj)

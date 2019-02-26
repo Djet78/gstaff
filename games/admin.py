@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Genre, Game, Studio, Platform
+
+from .models import Genre, Game, Studio, Platform, Publisher
 
 
 class GameAdmin(admin.ModelAdmin):
@@ -17,7 +18,8 @@ class GameAdmin(admin.ModelAdmin):
     genres_list.short_description = 'Genres'  # Admin page table name
 
 
-admin.site.register(Genre)
 admin.site.register(Game, GameAdmin)
-admin.site.register(Studio)
+admin.site.register(Genre)
 admin.site.register(Platform)
+admin.site.register(Publisher)
+admin.site.register(Studio)

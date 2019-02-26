@@ -1,0 +1,339 @@
+[
+{
+    "model": "games.game",
+    "fields": {
+        "name": "LOL",
+        "release_date": "2014-02-20",
+        "sys_min": "2 GHz single core processor\r\n1 GB of RAM (2GB for Windows Vista or newer)\r\n8 GB of hard drive space\r\nGraphics card that supports DirectX 9.0c or above and shader version 2.0",
+        "sys_req": "3 GHz single core processor\r\n2 GB of RAM (4 GB for Windows Vista or newer)\r\n12 GB available hard disk space\r\nGraphics card with 512MB or higher VRAM and supports DirectX 9.0c",
+        "studio": [
+            "RIOT Games"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada. Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac",
+        "poster": "game_posters/LOL.jpg",
+        "publishers": [
+            [
+                "Garena"
+            ],
+            [
+                "RIOT Games"
+            ],
+            [
+                "THQ"
+            ]
+        ],
+        "platforms": [
+            [
+                "PC"
+            ]
+        ],
+        "genres": [
+            [
+                "MOBA"
+            ]
+        ]
+    }
+},
+{
+    "model": "games.game",
+    "fields": {
+        "name": "Witcher",
+        "release_date": "2008-07-13",
+        "sys_min": "CPU: Intel Pentium 4 2.4 GHz or Athlon 64 +2800\r\nCPU SPEED: 2.4 GHz\r\nRAM: 1 GB\r\nOS: Windows XP/Vista\r\nVIDEO CARD: NVIDIA GeForce 6600 or ATI Radeon 9800 or better\r\nTOTAL VIDEO RAM: 128 MB\r\n3D: Yes\r\nHARDWARE T&L: Yes\r\nPIXEL SHADER: 2.0\r\nVERTEX SHADER: 2.0\r\nSOUND CARD: Yes\r\nFREE DISK SPACE: 8.5 GB",
+        "sys_req": "CPU: Intel Pentium 4 3.0 GHz or AMD Athlon 64 +3000 recommended\r\nCPU SPEED: 3.0 GHz\r\nRAM: 2 GB\r\nOS: Windows XP/Vista\r\nVIDEO CARD: NVIDIA GeForce 7800 GTX or ATI Radeon X1950 XT or better recommended\r\nTOTAL VIDEO RAM: 128 MB\r\n3D: Yes\r\nHARDWARE T&L: Yes\r\nPIXEL SHADER: 3.0\r\nVERTEX SHADER: 3.0\r\nSOUND CARD: Yes\r\nFREE DISK SPACE: 8.5 GB",
+        "studio": [
+            "CD Project"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut",
+        "poster": "game_posters/Witcher_1_Cover.jpg",
+        "publishers": [
+            [
+                "Atari"
+            ],
+            [
+                "CD Projekt"
+            ]
+        ],
+        "platforms": [
+            [
+                "PC"
+            ]
+        ],
+        "genres": [
+            [
+                "Action"
+            ],
+            [
+                "RPG"
+            ]
+        ]
+    }
+},
+{
+    "model": "games.game",
+    "fields": {
+        "name": "Witcher 2",
+        "release_date": "2016-02-20",
+        "sys_min": "OS: Windows XP SP2 / Windows Vista SP2 / Windows 7 (32/64-bit)\r\nProcessor: Intel Core 2 Duo 2.2 Ghz or AMD Athlon 64 X2 5000+\r\nMemory: 1 GB Windows XP / 2 GB Windows Vista and Windows 7\r\nVideo Card: 512 MB RAM, supporting Pixel Shader 3.0 (NVIDIA GeForce 8800)\r\nSound Card: compatible with DirectX 9.0c\r\nHDD: 16 GB of disc space\r\nDisc Drive: DVD x8, compatible with DVD9",
+        "sys_req": "OS: Windows XP SP2 / Windows Vista SP2 / Windows 7 (32/64-bit)\r\nProcessor: Intel Core 2 Quad or AMD Phenom X4\r\nMemory: 3 GB Windows XP / 4 GB Windows Vista and Windows 7\r\nVideo Card: 1 GB RAM, supporting Pixel Shader 3.0 (NVIDIA GeForce GTX 260)\r\nSound Card: compatible with DirectX 9.0c\r\nHDD: 16 GB of disc space\r\nDisc Drive: DVD x8, compatible with DVD9",
+        "studio": [
+            "CD Project"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada. Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci. Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Vestibulum fringilla pede sit amet augue.",
+        "poster": "game_posters/Witcher_2_Cover.jpg",
+        "publishers": [
+            [
+                "1\u0421"
+            ],
+            [
+                "Atari"
+            ],
+            [
+                "CD Projekt"
+            ],
+            [
+                "Warner Bros. Interactive Entertainment"
+            ]
+        ],
+        "platforms": [
+            [
+                "PC"
+            ],
+            [
+                "XBOX 360"
+            ]
+        ],
+        "genres": [
+            [
+                "Action"
+            ],
+            [
+                "RPG"
+            ]
+        ]
+    }
+},
+{
+    "model": "games.game",
+    "fields": {
+        "name": "Witcher 3",
+        "release_date": "2018-02-28",
+        "sys_min": "CPU: Intel CPU Core i5-2500K 3.3GHz / AMD CPU Phenom II X4 940\r\nCPU SPEED: Info\r\nRAM: 6 GB\r\nOS: 64-bit Windows 7 or 64-bit Windows 8 (8.1)\r\nVIDEO CARD: Nvidia GPU GeForce GTX 660 / AMD GPU Radeon HD 7870\r\nPIXEL SHADER: 5.0\r\nVERTEX SHADER: 5.0\r\nFREE DISK SPACE: 40 GB\r\nDEDICATED VIDEO RAM: 1.5 GB",
+        "sys_req": "CPU: Intel CPU Core i7 3770 3.4 GHz / AMD CPU AMD FX-8350 4 GHz\r\nCPU SPEED: Info\r\nRAM: 8 GB\r\nOS: 64-bit Windows 7 or 64-bit Windows 8 (8.1)\r\nVIDEO CARD: Nvidia GPU GeForce GTX 770 / AMD GPU Radeon R9 290\r\nPIXEL SHADER: 5.0\r\nVERTEX SHADER: 5.0\r\nFREE DISK SPACE: 40 GB\r\nDEDICATED VIDEO RAM: 2 GB",
+        "studio": [
+            "CD Project"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada. Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci. Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Vestibulum fringilla pede sit amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nullam sagittis. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec",
+        "poster": "game_posters/Witcher_3.jpg",
+        "publishers": [
+            [
+                "1\u0421"
+            ],
+            [
+                "Bandai Namco Entertainment Inc."
+            ],
+            [
+                "CD Projekt"
+            ],
+            [
+                "Warner Bros. Interactive Entertainment"
+            ]
+        ],
+        "platforms": [
+            [
+                "PC"
+            ],
+            [
+                "PS 4"
+            ],
+            [
+                "XBOX ONE"
+            ]
+        ],
+        "genres": [
+            [
+                "Action"
+            ],
+            [
+                "RPG"
+            ]
+        ]
+    }
+},
+{
+    "model": "games.game",
+    "fields": {
+        "name": "Fallout 4",
+        "release_date": "2017-02-20",
+        "sys_min": "OS: Windows 7/8/10 (64-bit OS required)\r\nProcessor: Intel Core i5-2300 2.8 GHz/AMD Phenom II X4 945 3.0 GHz or equivalent\r\nGraphics Card: NVIDIA GTX 550 Ti 2GB/AMD Radeon HD 7870 2GB or equivalent\r\nMemory: 8 GB RAM\r\nStorage: 30 GB free HDD space",
+        "sys_req": "OS: Windows 7/8/10 (64-bit OS required)\r\nProcessor: Intel Core i7 4790 3.6 GHz/AMD FX-9590 4.7 GHz or equivalent\r\nGraphics Card: NVIDIA GTX 780 3GB/AMD Radeon R9 290X 4GB or equivalent\r\nMemory: 8 GB RAM\r\nStorage: 30 GB free HDD space",
+        "studio": [
+            "Bethesda"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut",
+        "poster": "game_posters/Fallout_4.jpg",
+        "publishers": [
+            [
+                "Bethesda Softworks"
+            ]
+        ],
+        "platforms": [
+            [
+                "PC"
+            ],
+            [
+                "PS 4"
+            ],
+            [
+                "XBOX ONE"
+            ]
+        ],
+        "genres": [
+            [
+                "RPG"
+            ],
+            [
+                "Sandbox"
+            ],
+            [
+                "Shooter"
+            ]
+        ]
+    }
+},
+{
+    "model": "games.game",
+    "fields": {
+        "name": "Mass Effect",
+        "release_date": "2011-11-07",
+        "sys_min": "CPU: 2.4+ GHz Intel or 2.0+ GHz AMD\r\nCPU SPEED: 2.4+ GHz Intel or 2.0+ GHz AMD\r\nRAM: 1GB RAM (XP)/2GB Ram (Vista)\r\nOS: Windows XP / Vista / 7\r\nVIDEO CARD: NVIDIA GeForce 6 series (6800 GT or better), ATI X1300 XT or better (X1550, X1600 Pro and HD2400 are below minimum system requirements)\r\n3D: Yes\r\nHARDWARE T&L: Yes\r\nPIXEL SHADER: 3.0\r\nVERTEX SHADER: 3.0\r\nDIRECTX VERSION: 9.0c\r\nSOUND CARD: Yes\r\nFREE DISK SPACE: 12 GB",
+        "sys_req": "CPU: 2.6+ GHz Intel or 2.4+ GHz AMD\r\nCPU SPEED: 2.6+ GHz Intel or 2.4+ GHz AMD\r\nRAM: 2 GB\r\nOS: Windows XP / Vista / 7\r\nVIDEO CARD: ATI X1800 XL series or higher, NVIDIA GeForce 7900 GTX or higher\r\n3D: Yes\r\nHARDWARE T&L: Yes\r\nPIXEL SHADER: 3.0\r\nVERTEX SHADER: 3.0\r\nDIRECTX VERSION: 9.0c\r\nSOUND CARD: Yes\r\nFREE DISK SPACE: 12 GB",
+        "studio": [
+            "BioWare"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut",
+        "poster": "game_posters/Mass_Effect.jpg",
+        "publishers": [
+            [
+                "EA"
+            ],
+            [
+                "Xbox Game Studios"
+            ]
+        ],
+        "platforms": [
+            [
+                "PC"
+            ],
+            [
+                "PS 3"
+            ],
+            [
+                "XBOX 360"
+            ],
+            [
+                "XBOX ONE"
+            ]
+        ],
+        "genres": [
+            [
+                "Action"
+            ],
+            [
+                "RPG"
+            ],
+            [
+                "Shooter"
+            ]
+        ]
+    }
+},
+{
+    "model": "games.game",
+    "fields": {
+        "name": "Thief",
+        "release_date": "2014-05-11",
+        "sys_min": "OS: Windows Vista with platform update\r\nCPU: High-performance dual core CPU or quad core CPU\r\nRAM: 4 GB\r\nGraphics Card: AMD Radeon 4800 series / Nvidia GTS 250\r\nDirectX: DirectX 10\r\nHDD/SSD: 20 GB",
+        "sys_req": "OS: Windows 7 or 8\r\nCPU: AMD FX 8000 series or better / Intel i7 Quad Core CPU\r\nRAM: 4+ GB\r\nGraphics Card: AMD Radeon HD / R9 series or better / Nvidia GTX 660 series or better\r\nDirectX: DirectX 11\r\nHDD/SSD: 20 GB",
+        "studio": [
+            "Eidos Montreal"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada. Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci. Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Vestibulum fringilla pede sit amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nullam sagittis. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis",
+        "poster": "game_posters/Thief_box_art.jpg",
+        "publishers": [
+            [
+                "Square Enix"
+            ]
+        ],
+        "platforms": [
+            [
+                "PC"
+            ],
+            [
+                "PS 3"
+            ],
+            [
+                "PS 4"
+            ],
+            [
+                "XBOX 360"
+            ],
+            [
+                "XBOX ONE"
+            ]
+        ],
+        "genres": [
+            [
+                "Action"
+            ],
+            [
+                "Stealth"
+            ]
+        ]
+    }
+},
+{
+    "model": "games.game",
+    "fields": {
+        "name": "Bulletstorm",
+        "release_date": "2010-04-12",
+        "sys_min": "Processor Intel Core 2 Duo, AMD Athlon X2, or equivalent, running at 1.6 GHz or greater\r\nMemory (RAM) 1.5 GB\r\nVideo Card DirectX 9.0c compatible, 256 MB of VRAM; NVIDIA GeForce 7600 GS, ATI Radeon HD 2400 Pro 256 MB, or greater\r\nHDD Space 9 GB available\r\nOperating System Windows XP (SP3), Windows Vista (SP2), or Windows 7\r\nSoundcard DirectX 9.0c compatible, 16-bit\r\nDisc Drive 16X CD/DVD Drive\r\nNetwork Internet (TCP/IP) connection",
+        "sys_req": "Processor QuadCore 2.0 GHz\r\nMemory (RAM) 2 GB\r\nVideo Card DirectX 9.0c compatible, 512MB of VRAM; NVIDIA GeForce GTX260, or ATI Radeon 4870\r\nHDD Space 9 GB available\r\nOperating System Windows Vista (SP2), or Windows 7\r\nSoundcard DirectX 9.0c compatible, 16-bit\r\nDisc Drive 16X CD/DVD Drive\r\nNetwork Broadband Internet (TCP/IP) connection",
+        "studio": [
+            "Epic Games"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada. Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci. Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Vestibulum fringilla pede sit amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed",
+        "poster": "game_posters/Bulletstorm.jpg",
+        "publishers": [
+            [
+                "EA"
+            ]
+        ],
+        "platforms": [
+            [
+                "PC"
+            ],
+            [
+                "PS 3"
+            ],
+            [
+                "PS 4"
+            ],
+            [
+                "XBOX 360"
+            ],
+            [
+                "XBOX ONE"
+            ]
+        ],
+        "genres": [
+            [
+                "Action"
+            ],
+            [
+                "Shooter"
+            ]
+        ]
+    }
+}
+]

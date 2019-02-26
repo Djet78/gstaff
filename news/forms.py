@@ -19,6 +19,7 @@ class CommentAddForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
     def clean(self):
+        # TODO test this behavior with new Game model relation
         """ Prevents exceptions from misbehaved users, who have changed hidden values from form fields """
         super().clean()
         if self.parent_comment_id:
