@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 
 
 def user_is_editor(function):
-    """ Decorator that can be used to restrict access for everyone, except editors """
+    """ This decorator restricts access for everyone, except editors """
     @wraps(function)
     def wrapper(request, *args, **kwargs):
         if request.user.is_editor:

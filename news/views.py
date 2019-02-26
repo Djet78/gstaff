@@ -73,7 +73,6 @@ class EditorsPublicationsView(View):
     model = Article
     template_name = 'news/editor_publications.html'
 
-    # TODO may be add some filters for pubs like on main page
     def get(self, request, *args, **kwargs):
         articles = self.model.objects.filter(owner__id=request.user.id)
         context = {'articles': articles}
