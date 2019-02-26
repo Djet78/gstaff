@@ -63,7 +63,7 @@ class ArticleDetail(View):
 
         context = {
             'article':  article,
-            'comment_form': self.comment_form,
+            'comment_form': self.comment_form(),
         }
         return render(request, self.template, context)
 
