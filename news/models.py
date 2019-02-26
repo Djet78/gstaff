@@ -71,7 +71,10 @@ class Complaint(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=200)
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL,
+                              on_delete=models.PROTECT,
+                              # Restrict choices to admins and editors
+                              limit_choices_to=models.Q(is_admin=True) | models.Q(is_editor=True))
     pub_date = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
     game = models.ForeignKey(Game, on_delete=models.PROTECT)
