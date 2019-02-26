@@ -9,12 +9,12 @@ class GameAdmin(admin.ModelAdmin):
 
     def platforms_list(self, obj):
         """ Represents platforms for particular game on admin page """
-        return list(obj.platforms.all())
+        return list(obj.platforms.values_list('name', flat=True))
     platforms_list.short_description = 'Platforms'  # Admin page table name
 
     def genres_list(self, obj):
         """ Represents genres for particular game on admin page """
-        return list(obj.genres.all())
+        return list(obj.genres.values_list('name', flat=True))
     genres_list.short_description = 'Genres'  # Admin page table name
 
 
