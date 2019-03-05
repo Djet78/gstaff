@@ -1,26 +1,28 @@
-{% extends "news/base.html" %}
+{% extends "layouts/default.html" %}
 
 {% block title %}
     News
 {% endblock title%}
 
 {% block content %}
-
-    <form method="GET">
-        {{ search_form.as_p }}
-        <input type="submit" value="Submit">
-    </form>
+    <div class="col">
+        <form method="GET">
+            {{ search_form.as_p }}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 
     {% for article in articles%}
-        <h2>{{ article.title }}</h2>
-        {% if article.image %}
-            <img src="{{ article.image.url }}">
-        {% endif %}
-        <p>{{ article.pub_date }}</p>
-        <p><a href="{{ article.get_absolute_url }}">More</a></p>
-        <hr>
+        <div class="col">
+            <h2>{{ article.title }}</h2>
+            {% if article.image %}
+                <img src="{{ article.image.url }}" alt="Article image">
+            {% endif %}
+            <p>{{ article.pub_date }}</p>
+            <p><a href="{{ article.get_absolute_url }}">More</a></p>
+            <hr>
+        </div>
     {% empty %}
         No news
     {% endfor %}
-            
 {% endblock content %}
