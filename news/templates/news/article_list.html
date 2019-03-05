@@ -1,8 +1,6 @@
 {% extends "layouts/default.html" %}
 
-{% block title %}
-    News
-{% endblock title%}
+{% block title %}News{% endblock title%}
 
 {% block content %}
     <div class="col">
@@ -16,7 +14,7 @@
         <div class="col">
             <h2>{{ article.title }}</h2>
             {% if article.image %}
-                <img src="{{ article.image.url }}" alt="Article image">
+                <img src="{{ article.image.url }}" alt="Article preview image">
             {% endif %}
             <p>{{ article.pub_date }}</p>
             <p><a href="{{ article.get_absolute_url }}">More</a></p>

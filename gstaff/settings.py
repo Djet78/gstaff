@@ -60,7 +60,9 @@ ROOT_URLCONF = 'gstaff.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [
+            'assets/templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,8 +127,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+# https://docs.djangoproject.com/en/2.1/ref/settings/#static-files
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "assets"),
+]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -138,6 +145,7 @@ MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_URL = 'users:login'
+
 LOGIN_REDIRECT_URL = 'users:profile'
 
 LOGOUT_REDIRECT_URL = 'news:article_list'
