@@ -7,21 +7,44 @@
     <!-- Bootstrap 4 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
     <title>GStaff - {% block title %}{% endblock title %}</title>
 
 </head>
 <body class="d-flex flex-column justify-content-between h-100">
 
-    <header class="container-fluid" style="height: 10rem; background-image: url({% static 'images/header-bg_1680x160.png' %}">
+    <header class="container-fluid header">
         <div class="row align-items-center h-100">
-            <div class="col-2 bg-warning offset-1">Logo placeholder</div>
-            <div class="col-8 bg-warning offset-1">
-                <nav class="navbar navbar-light bg-light">
-                    <a href="{% url 'news:article_list' %}">News</a>
-                    <a href="{% url 'games:game_list' %}">Games</a>
-                    <a href="{% url 'games:studio_list' %}">Studios</a>
-                    <a href="{% url 'games:platform_list' %}">Platforms</a>
+            <div class="col-2 bg-warning offset-lg-2">Logo placeholder</div>
+
+            <div class="col offset-4 offset-md-0">
+                <nav class="navbar navbar-expand-md">
+                    <!-- Used to move collapsed menu to the right side of a nav-->
+                    <div class="d-md-none"></div>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerNav" aria-controls="headerNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="headerNav">
+                        <a href="{% url 'news:article_list' %}" class="nav-item nav-link header-navbar-link">
+                            <img src="{% static 'images/news_link_icon.svg' %}" alt="news image">
+                            <div>News</div>
+                        </a>
+                        <a href="{% url 'games:game_list' %}" class="nav-item nav-link header-navbar-link">
+                            <img src="{% static 'images/games_link_icon.svg' %}" alt="games image">
+                            <div>Games</div>
+                        </a>
+                        <a href="{% url 'games:studio_list' %}" class="nav-item nav-link header-navbar-link">
+                            <img src="{% static 'images/studio_link_icon.svg' %}" alt="studios image">
+                            <div>Studios</div>
+                        </a>
+                        <a href="{% url 'games:platform_list' %}" class="nav-item nav-link header-navbar-link">
+                            <img src="{% static 'images/platforms_link_icon.svg' %}" alt="platforms image">
+                            <div>Platforms</div>
+                        </a>
+                    </div>
                 </nav>
             </div>
         </div>
@@ -34,10 +57,14 @@
     </div>
     {% endcomment %}
 
-    <footer class="container-fluid" style="height: 10rem; background-image: url({% static 'images/footer-bg_1680x160.png' %}">
+
+    <footer class="container-fluid footer">
         <div class="row align-items-center h-100">
             <div class="col-2 bg-warning offset-1">Info placeholder</div>
-            <div class="col-8 bg-warning offset-1">Contacts placeholder</div>
+            <div class="col-5 bg-warning offset-1">Contacts placeholder</div>
+            <div class="col-2 offset-1">
+                <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+            </div>
         </div>
     </footer>
 

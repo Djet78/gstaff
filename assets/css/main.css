@@ -1,0 +1,64 @@
+/* -------- Header -------- */
+.header {
+  height: 10rem;
+  background-image: url("/static/images/header-bg_1680x160.png");
+}
+
+.header-navbar-link {
+  background-color: #FFB01C;
+  border: 5px solid black;
+  color: black;
+  padding: 0.2rem 1rem;
+  margin-left: 1rem;
+  text-align: center;
+  font-weight: 800;
+}
+.header-navbar-link img {
+  height: 64px;
+}
+.header-navbar-link div {
+  width: 5rem;
+}
+.header-navbar-link:hover {
+  text-decoration: none;
+  color: white;
+}
+.header-navbar-link:first-child {
+  border-radius: 20px 0 0 20px;
+}
+.header-navbar-link:last-child {
+  border-radius: 0 20px 20px 0;
+}
+
+.navbar-toggler {
+  background-color: #FFB01C;
+}
+
+.navbar-toggler-icon {
+  background-image: url("/static/images/collapsed_menu_icon.svg");
+}
+
+@media (max-width: 767.98px) {
+  .header-navbar-link {
+    min-width: 10rem;
+  }
+  .header-navbar-link img {
+    height: 32px;
+  }
+  .header-navbar-link div {
+    display: inline;
+  }
+  .header-navbar-link:first-child {
+    border-radius: 20px 0 0 0;
+  }
+  .header-navbar-link:last-child {
+    border-radius: 0 0 20px 20px;
+  }
+}
+/* --------- Footer -------- */
+.footer {
+  height: 10rem;
+  background-image: url("/static/images/footer-bg_1680x160.png");
+}
+
+/*# sourceMappingURL=main.css.map */
