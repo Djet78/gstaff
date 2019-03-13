@@ -4,12 +4,16 @@
   background-image: url("/static/images/header-bg_1680x160.png");
 }
 
+.header-logo {
+  width: 100%;
+}
+
 .header-navbar-link {
   background-color: #FFB01C;
   border: 5px solid black;
   color: black;
   padding: 0.2rem 1rem;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
   text-align: center;
   font-weight: 800;
 }
@@ -30,14 +34,6 @@
   border-radius: 0 20px 20px 0;
 }
 
-.navbar-toggler {
-  background-color: #FFB01C;
-}
-
-.navbar-toggler-icon {
-  background-image: url("/static/images/collapsed_menu_icon.svg");
-}
-
 @media (max-width: 767.98px) {
   .header-navbar-link {
     min-width: 10rem;
@@ -55,6 +51,19 @@
     border-radius: 0 0 20px 20px;
   }
 }
+/* -------- Overridden bootstrap -------- */
+.navbar-collapse {
+  z-index: 1;
+}
+
+.navbar-toggler {
+  background-color: #FFB01C;
+}
+
+.navbar-toggler-icon {
+  background-image: url("/static/images/collapsed_menu_icon.svg");
+}
+
 /* --------- Footer -------- */
 .footer {
   height: 10rem;

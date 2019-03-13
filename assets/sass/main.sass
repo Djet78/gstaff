@@ -7,12 +7,15 @@ $header_nav_bg_color: #FFB01C
     height: 10rem
     background-image: url("/static/images/header-bg_1680x160.png")
 
+.header-logo
+    width: 100%
+
 .header-navbar-link
     background-color: $header_nav_bg_color
     border: 5px solid black
     color: black
     padding: .2rem 1rem
-    margin-left: 1rem
+    margin-left: .5rem
     text-align: center
     font-weight: 800
 
@@ -32,11 +35,6 @@ $header_nav_bg_color: #FFB01C
     &:last-child
         border-radius: 0 20px 20px 0
 
-.navbar-toggler
-    background-color: $header_nav_bg_color
-
-.navbar-toggler-icon
-    background-image: url("/static/images/collapsed_menu_icon.svg")
 
 @media(max-width: 767.98px)
     .header-navbar-link
@@ -52,6 +50,17 @@ $header_nav_bg_color: #FFB01C
 
         &:last-child
             border-radius: 0 0 20px 20px
+
+
+/* -------- Overridden bootstrap -------- */
+.navbar-collapse
+    z-index: 1
+
+.navbar-toggler
+    background-color: $header_nav_bg_color
+
+.navbar-toggler-icon
+    background-image: url("/static/images/collapsed_menu_icon.svg")
 
 /* --------- Footer -------- */
 .footer
