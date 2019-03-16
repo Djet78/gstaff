@@ -33,7 +33,6 @@
 .header-navbar-link:last-child {
   border-radius: 0 20px 20px 0;
 }
-
 @media (max-width: 767.98px) {
   .header-navbar-link {
     min-width: 10rem;
@@ -51,6 +50,7 @@
     border-radius: 0 0 20px 20px;
   }
 }
+
 /* -------- Overridden bootstrap -------- */
 .navbar-collapse {
   z-index: 1;
@@ -62,6 +62,28 @@
 
 .navbar-toggler-icon {
   background-image: url("/static/images/collapsed_menu_icon.svg");
+}
+
+/* -------- Content box -------- */
+.content-box {
+  border: 2px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* -------- Apps stylesheets -------- */
+/* -------- Game app -------- */
+/* -------- Platforms -------- */
+.list-platform {
+  border: 2px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.list-platform a {
+  text-decoration: none;
+  color: black;
+}
+.list-platform img {
+  height: 150px;
+  width: 150px;
 }
 
 /* --------- Footer -------- */

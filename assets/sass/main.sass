@@ -35,9 +35,7 @@ $header_nav_bg_color: #FFB01C
     &:last-child
         border-radius: 0 20px 20px 0
 
-
-@media(max-width: 767.98px)
-    .header-navbar-link
+    @media(max-width: 767.98px)
         min-width: 10rem
         img
             height: 32px
@@ -61,6 +59,19 @@ $header_nav_bg_color: #FFB01C
 
 .navbar-toggler-icon
     background-image: url("/static/images/collapsed_menu_icon.svg")
+
+/* -------- Content box -------- */
+.content-box
+    border: 2px solid black
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+
+
+/* -------- Apps stylesheets -------- */
+
+/* -------- Game app -------- */
+
+/* -------- Platforms -------- */
+@import "../../games/static/games/sass/platforms.sass"
 
 /* --------- Footer -------- */
 .footer
