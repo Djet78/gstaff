@@ -132,7 +132,7 @@ class Game(models.Model):
     release_date = models.DateField()
     sys_min = models.TextField(blank=True, null=True)
     sys_req = models.TextField(blank=True, null=True)
-    studio = models.ForeignKey(Studio, on_delete=models.PROTECT)
+    studio = models.ForeignKey(Studio, on_delete=models.PROTECT, related_name='games')
     publishers = models.ManyToManyField(Publisher, related_name='games')
     platforms = models.ManyToManyField(Platform, related_name='games')
     description = models.TextField()
