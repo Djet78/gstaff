@@ -1,3 +1,14 @@
+/* -------- Utils stylesheets -------- */
+.btn-magnifier {
+  background: url("/static/images/magnifier.svg") no-repeat center #FFB01C;
+  background-size: 20px;
+  border-color: black;
+  width: 38px;
+}
+.btn-magnifier:hover {
+  background-color: #BF8415;
+}
+
 /* -------- Header -------- */
 .header {
   height: 10rem;

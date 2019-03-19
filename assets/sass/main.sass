@@ -1,6 +1,10 @@
 // ----- Variables --------
-$header_nav_bg_color: #FFB01C
+$primary_color: #FFB01C
+$primary_color_darker: #BF8415
 
+/* -------- Utils stylesheets -------- */
+
+@import "./utils.sass"
 
 /* -------- Header -------- */
 .header
@@ -11,7 +15,7 @@ $header_nav_bg_color: #FFB01C
     width: 100%
 
 .header-navbar-link
-    background-color: $header_nav_bg_color
+    background-color: $primary_color
     border: 5px solid black
     color: black
     padding: .2rem 1rem
@@ -55,7 +59,7 @@ $header_nav_bg_color: #FFB01C
     z-index: 1
 
 .navbar-toggler
-    background-color: $header_nav_bg_color
+    background-color: $primary_color
 
 .navbar-toggler-icon
     background-image: url("/static/images/collapsed_menu_icon.svg")
