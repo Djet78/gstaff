@@ -6,10 +6,7 @@
 
 {% block content %}
 
-    <form method="GET">
-        {{ search_bar.as_p }}
-        <input type="submit" value="Submit">
-    </form>
+    {% include "forms/search_bar.html" %}
 
     {% for studio in studios %}
         <h2><a href="{{ studio.get_absolute_url }}">{{ studio.name }}</a></h2>

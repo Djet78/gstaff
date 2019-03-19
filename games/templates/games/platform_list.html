@@ -5,14 +5,9 @@
 {% endblock title%}
 
 {% block content %}
-    <div class="row justify-content-end">
-        <div class="col-12 col-sm-7 col-md-5 col-lg-4">
-            <form method="GET" class="form-inline">
-                {% include "inputs/search_bar_input.html" %}
-                {% include "inputs/search_bar_btn.html" %}
-            </form>
-        </div>
-    </div>
+
+    {% include "forms/search_bar.html" %}
+
     {% for plat in platforms %}
         <div class="row list-platform my-3">
             <a href="{{ plat.get_absolute_url }}" class="col">
