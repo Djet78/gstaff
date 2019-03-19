@@ -5,13 +5,13 @@
 {% endblock title%}
 
 {% block content %}
-    <div class="row">
-        <form method="GET" class="form-inline">
-            <div class="form-group">
-                {{ search_bar }}
-            </div>
-            <input type="submit" class="btn m-2" value="Submit">
-        </form>
+    <div class="row justify-content-end">
+        <div class="col-12 col-sm-7 col-md-5 col-lg-4">
+            <form method="GET" class="form-inline">
+                {% include "inputs/search_bar_input.html" %}
+                {% include "inputs/search_bar_btn.html" %}
+            </form>
+        </div>
     </div>
     {% for plat in platforms %}
         <div class="row list-platform my-3">
