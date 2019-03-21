@@ -23,9 +23,9 @@ class GameList(ContextGenerator, View):
     search_form = GamesFilterForm
 
     FIELDS_QUERIES_MAPPING = {
-        'platform_name': 'platforms__name__in',
-        'studio_name': 'studio__name__in',
-        'genre_name': 'genres__name__in',
+        'platforms': 'platforms__name__in',
+        'studios': 'studio__name__in',
+        'genres': 'genres__name__in',
         'search': 'name__icontains',
         'from_date': 'release_date__year__gte',
         'to_date': 'release_date__year__lte',

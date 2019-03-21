@@ -16,9 +16,9 @@ class ArticleList(ContextGenerator, View):
     search_form = SearchNewsForm
 
     FIELDS_QUERIES_MAPPING = {
-        'platform_name': 'game__platforms__name__in',
-        'studio_name': 'game__studio__name__in',
-        'genre_name': 'game__genres__name__in',
+        'platforms': 'game__platforms__name__in',
+        'studios': 'game__studio__name__in',
+        'genres': 'game__genres__name__in',
         'search': 'title__icontains',
     }
 

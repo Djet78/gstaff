@@ -76,21 +76,21 @@ class YearRangeForm(forms.Form):
 
 
 class PlatformMulChoiceForm(forms.Form):
-    platform_name = BootstrapMultipleChoiceField(
+    platforms = BootstrapMultipleChoiceField(
         choices=lambda: ((obj['name'], obj['name']) for obj in Platform.objects.values('name')),
         required=False,
     )
 
 
 class StudioMulChoiceForm(forms.Form):
-    studio_name = BootstrapMultipleChoiceField(
+    studios = BootstrapMultipleChoiceField(
         choices=lambda: ((obj['name'], obj['name']) for obj in Studio.objects.values('name')),
         required=False,
     )
 
 
 class GenreMulChoiceForm(forms.Form):
-    genre_name = BootstrapMultipleChoiceField(
+    genres = BootstrapMultipleChoiceField(
         choices=lambda: ((obj['name'], obj['name']) for obj in Genre.objects.values('name')),
         required=False,
     )
