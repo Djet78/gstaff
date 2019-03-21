@@ -6,7 +6,8 @@
 
 {% block content %}
 
-    {% include "forms/search_bar.html" %}
+    {{ search_bar.non_fields_errors }}
+    {% include "forms/search_bar.html" with field=search_bar.search %}
 
     {% for studio in studios %}
         <h2><a href="{{ studio.get_absolute_url }}">{{ studio.name }}</a></h2>
