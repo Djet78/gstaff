@@ -3,13 +3,18 @@
 {% block title %}News{% endblock title%}
 
 {% block content %}
-    <div class="col">
-        <form method="GET">
-            {{ search_form.as_p }}
-            <input type="submit" value="Submit">
-        </form>
-    </div>
 
+    <!-- Search bar -->
+    <form method="GET" class="form-inline">
+        {% include 'inputs/mul_select_dropdown.html' with field=search_form.genre_name dropdown_id='genre_dropdown' %}
+        {% include 'inputs/mul_select_dropdown.html' with field=search_form.studio_name dropdown_id='studio_dropdown' %}
+        {% include 'inputs/mul_select_dropdown.html' with field=search_form.platform_name dropdown_id='platform_dropdown' %}
+
+        {% include 'inputs/search_bar_btn.html' %}
+    </form>
+    <!-- Search bar end -->
+
+    <!-- Articles  -->
     {% for article in articles%}
         <div class="col">
             <h2>{{ article.title }}</h2>
@@ -23,4 +28,6 @@
     {% empty %}
         No news
     {% endfor %}
+    <!-- Articles end -->
+
 {% endblock content %}
