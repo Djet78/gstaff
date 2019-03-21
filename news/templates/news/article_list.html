@@ -6,6 +6,7 @@
 
     <!-- Search bar -->
     <form method="GET" class="form-inline">
+        {{ search_form.non_field_errors }}
         {% include 'inputs/mul_select_dropdown.html' with field=search_form.genres dropdown_id='genre_dropdown' %}
         {% include 'inputs/mul_select_dropdown.html' with field=search_form.studios dropdown_id='studio_dropdown' %}
         {% include 'inputs/mul_select_dropdown.html' with field=search_form.platforms dropdown_id='platform_dropdown' %}
