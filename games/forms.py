@@ -5,6 +5,7 @@ from django.db.models import Min
 
 from .models import Game, Genre, Platform, Publisher, Studio
 from gstaff.forms import SearchBarForm
+from gstaff.fields import BootstrapMultipleChoiceField
 
 
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -75,26 +76,23 @@ class YearRangeForm(forms.Form):
 
 
 class PlatformMulChoiceForm(forms.Form):
-    platform_name = forms.MultipleChoiceField(
+    platform_name = BootstrapMultipleChoiceField(
         choices=lambda: ((obj['name'], obj['name']) for obj in Platform.objects.values('name')),
         required=False,
-        widget=forms.CheckboxSelectMultiple
     )
 
 
 class StudioMulChoiceForm(forms.Form):
-    studio_name = forms.MultipleChoiceField(
+    studio_name = BootstrapMultipleChoiceField(
         choices=lambda: ((obj['name'], obj['name']) for obj in Studio.objects.values('name')),
         required=False,
-        widget=forms.CheckboxSelectMultiple
     )
 
 
 class GenreMulChoiceForm(forms.Form):
-    genre_name = forms.MultipleChoiceField(
+    genre_name = BootstrapMultipleChoiceField(
         choices=lambda: ((obj['name'], obj['name']) for obj in Genre.objects.values('name')),
         required=False,
-        widget=forms.CheckboxSelectMultiple
     )
 
 

@@ -1,0 +1,13 @@
+<div class="dropdown mx-2">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="{{ dropdown_id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ field.label }}
+    </button>
+    <div class="dropdown-menu" aria-labelledby="{{ dropdown_id }}">
+        {% for checkbox in field %}
+            <div class="form-check d-flex justify-content-start pl-2">
+                {{ checkbox.tag }}
+                <label for="{{ checkbox.id_for_label }}" class="form-check-label">{{ checkbox.choice_label }}</label>
+            </div>
+        {% endfor %}
+    </div>
+</div>
