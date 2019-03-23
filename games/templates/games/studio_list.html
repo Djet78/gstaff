@@ -10,8 +10,19 @@
     {% include "forms/search_bar.html" with field=search_bar.search %}
 
     {% for studio in studios %}
-        <h2><a href="{{ studio.get_absolute_url }}">{{ studio.name }}</a></h2>
-        <hr>
+        <a class="block-link" href="{{ studio.get_absolute_url }}">
+            <div class="studio-list-obj my-3 p-3">
+                <div class="row">
+                    <div class="col d-none col-md-3 d-md-block">
+                        <img src="{{ studio.logo.url }}" class="img-thumbnail" alt="Studio logo">
+                    </div>
+                    <div class="col">
+                        <h2>{{ studio.name }}</h2>
+                        <p>{{ studio.description|truncatechars:300 }}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
     {% empty %}
         No studios matched
     {% endfor %}
