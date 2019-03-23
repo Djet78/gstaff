@@ -10,9 +10,9 @@
     {% include "forms/search_bar.html" with field=search_bar.search %}
 
     {% for plat in platforms %}
-        <div class="platform-list-obj my-3">
-            <a class="container-fluid h-100" href="{{ plat.get_absolute_url }}">
-                <div class="row px-3">
+        <a href="{{ plat.get_absolute_url }}" class="block-link">
+            <div class="platform-list-obj my-3 p-3">
+                <div class="row">
                     <div class="d-none col-md-3 d-md-block">
                         <img src="{{ plat.photo.url }}" alt="Platform photo" class="img-thumbnail">
                     </div>
@@ -21,8 +21,8 @@
                         <p>{{ plat.description|truncatechars:300 }}</p>
                     </div>
                 </div>
-            </a>
-        </div>
+            </div>
+        </a>
     {% empty %}
         No platforms matched
     {% endfor %}
