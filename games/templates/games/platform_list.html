@@ -10,7 +10,7 @@
     {% include "forms/search_bar.html" with field=search_bar.search %}
 
     {% for plat in platforms %}
-        <div class="row list-platform my-3">
+        <div class="row my-3 platform-list-obj">
             <a href="{{ plat.get_absolute_url }}" class="col">
                 <div class="container-fluid">
                     <div class="row py-3">
@@ -28,5 +28,5 @@
         </div>
     {% empty %}
         No platforms matched
-{% endfor %}
+    {% endfor %}
 {% endblock content %}
