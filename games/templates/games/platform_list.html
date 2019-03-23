@@ -10,20 +10,17 @@
     {% include "forms/search_bar.html" with field=search_bar.search %}
 
     {% for plat in platforms %}
-        <div class="row my-3 platform-list-obj">
-            <a href="{{ plat.get_absolute_url }}" class="col">
-                <div class="container-fluid">
-                    <div class="row py-3">
-                        <div class="d-none col-md-3 d-md-block">
-                            <img src="{{ plat.photo.url }}" alt="Platform photo" class="img-thumbnail">
-                        </div>
-                        <div class="col">
-                            <h2>{{ plat.name }}</h2>
-                            <p>{{ plat.description|truncatechars:300 }}</p>
-                        </div>
+        <div class="platform-list-obj my-3">
+            <a class="container-fluid h-100" href="{{ plat.get_absolute_url }}">
+                <div class="row px-3">
+                    <div class="d-none col-md-3 d-md-block">
+                        <img src="{{ plat.photo.url }}" alt="Platform photo" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <h2>{{ plat.name }}</h2>
+                        <p>{{ plat.description|truncatechars:300 }}</p>
                     </div>
                 </div>
-
             </a>
         </div>
     {% empty %}
