@@ -82,7 +82,12 @@
 }
 
 /* -------- Apps stylesheets -------- */
-/* -------- Game app -------- */
+/* -------- News app -------- */
+.article-prev-image {
+  height: 190px;
+}
+
+/* -------- Games app -------- */
 /* -------- Platforms -------- */
 .list-platform {
   border: 2px solid black;

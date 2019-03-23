@@ -20,21 +20,22 @@
     <!-- Search bar end -->
 
     <!-- Articles  -->
-    {% for article in articles%}
-        <div class="row">
-            <div class="col">
-                <h2>{{ article.title }}</h2>
-                {% if article.image %}
-                    <img src="{{ article.image.url }}" alt="Article preview image">
-                {% endif %}
-                <p>{{ article.pub_date }}</p>
-                <p><a href="{{ article.get_absolute_url }}">More</a></p>
-                <hr>
+    <div class="row">
+    {% for article in articles %}
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card my-2">
+                <img src="{{ article.image.url }}" class="card-img-top article-prev-image" alt="Article preview image">
+                <h2 class="card-header">{{ article.title }}</h2>
+                <div class="card-body">
+                    <div class="card-text">{{ article.content|truncatechars:200 }}<a href="{{ article.get_absolute_url }}">More</a></div>
+                </div>
+                <div class="card-footer text-muted">Published: {{ article.pub_date }}</div>
             </div>
         </div>
     {% empty %}
         No news
     {% endfor %}
+    </div>
     <!-- Articles end -->
 
 {% endblock content %}
