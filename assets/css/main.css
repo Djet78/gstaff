@@ -92,15 +92,16 @@
 
 /* -------- Apps stylesheets -------- */
 /* -------- News app -------- */
-.article-list-obj a {
-  text-decoration: none;
-  color: black;
-}
 .article-list-obj img {
   height: 190px;
 }
 
 /* -------- Games app -------- */
+/* -------- Games -------- */
+.game-list-obj img {
+  height: 250px;
+}
+
 /* -------- Platforms -------- */
 .platform-list-obj {
   border: 2px solid black;

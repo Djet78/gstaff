@@ -24,8 +24,8 @@
     {% for article in articles %}
         <div class="col-12 col-md-6 col-lg-4">
             <div class="article-list-obj">
-                <a class="card my-2" href="{{ article.get_absolute_url }}">
-                    <img src="{{ article.image.url }}" class="card-img-top article-prev-image" alt="'{{ article.title }}' preview image">
+                <a class="card my-2 block-link" href="{{ article.get_absolute_url }}">
+                    <img src="{{ article.image.url }}" class="card-img-top" alt="'{{ article.title }}' preview image">
                     <h2 class="card-header">{{ article.title }}</h2>
                     <div class="card-body">
                         <div class="card-text">{{ article.content|truncatechars:200 }}</div>
