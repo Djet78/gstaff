@@ -28,7 +28,7 @@ class GameList(ContextGenerator, View):
         'genres': 'genres__name__in',
         'search': 'name__icontains',
         'from_date': 'release_date__year__gte',
-        'to_date': 'release_date__year__lte',
+        'until_date': 'release_date__year__lte',
     }
 
     def get(self, request, *args, **kwargs):

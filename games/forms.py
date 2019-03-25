@@ -70,9 +70,9 @@ class YearRangeForm(forms.Form):
     from_date = BootstrapChoiceField(choices=get_game_year_choices,
                                      required=False,
                                      label='From')
-    to_date = BootstrapChoiceField(choices=get_game_year_choices,
-                                   required=False,
-                                   label='Until')
+    until_date = BootstrapChoiceField(choices=get_game_year_choices,
+                                      required=False,
+                                      label='Until')
 
 
 class PlatformMulChoiceForm(forms.Form):
