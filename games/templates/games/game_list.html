@@ -6,10 +6,22 @@
 
 {% block content %}
 
-    <form method="GET">
-        {{ search_form.as_p }}
-        <input type="submit" value="Submit">
-    </form>
+    <!-- Search bar -->
+    <div class="row justify-content-end">
+        <div class="col col-xl-9">
+            <form method="GET" class="form-inline">
+                {{ search_form.non_field_errors }}
+                {% include 'inputs/select_dropdown.html' with field=search_form.genres dropdown_id='genre_dropdown' %}
+                {% include 'inputs/select_dropdown.html' with field=search_form.studios dropdown_id='studio_dropdown' %}
+                {% include 'inputs/select_dropdown.html' with field=search_form.platforms dropdown_id='platform_dropdown' %}
+                {% include 'inputs/select_dropdown.html' with field=search_form.from_date dropdown_id='from_dropdown' %}
+                {% include 'inputs/select_dropdown.html' with field=search_form.to_date dropdown_id='until_dropdown' %}
+                {% include 'inputs/search_bar.html' with field=search_form.search %}
+                {% include 'inputs/search_bar_btn.html' %}
+            </form>
+        </div>
+    </div>
+    <!-- Search bar end -->
 
     {% for g in games %}
         <h2>{{ g.name }}</h2>

@@ -5,7 +5,7 @@ from django.db.models import Min
 
 from .models import Game, Genre, Platform, Publisher, Studio
 from gstaff.forms import SearchBarForm
-from gstaff.fields import BootstrapMultipleChoiceField
+from gstaff.fields import BootstrapChoiceField, BootstrapMultipleChoiceField
 
 
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -67,12 +67,12 @@ def get_game_year_choices(prepend_empty=True, empty_val=('', '----')):
 
 
 class YearRangeForm(forms.Form):
-    from_date = forms.ChoiceField(choices=get_game_year_choices,
-                                  required=False,
-                                  label='From')
-    to_date = forms.ChoiceField(choices=get_game_year_choices,
-                                required=False,
-                                label='To')
+    from_date = BootstrapChoiceField(choices=get_game_year_choices,
+                                     required=False,
+                                     label='From')
+    to_date = BootstrapChoiceField(choices=get_game_year_choices,
+                                   required=False,
+                                   label='Until')
 
 
 class PlatformMulChoiceForm(forms.Form):
