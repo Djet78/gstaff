@@ -23,21 +23,50 @@
     </div>
     <!-- Search bar end -->
 
-    {% for g in games %}
-        <h2>{{ g.name }}</h2>
-        <img src="{{ g.poster.url }}">
-        <p>{{ g.release_date }}</p>
-        <p>Dev Studio: {{ g.studio }}</p>
-        {% for genre in g.genres.all %}
-            <p>{{ genre.name }}</p>
+    <!-- Games -->
+    <div class="row">
+        {% for game in games %}
+        <div class="col-6">
+            <div class="game-list-obj">
+                <div class="card my-2 block-link">
+                    <div class="row no-gutters">
+                        <a href="{{ game.get_absolute_url }}" class="col-4">
+                            <img src="{{ game.poster.url }}" alt="{{ game.name }} poster" class="card-img">
+                        </a>
+                        <div class="col">
+                            <a href="{{ game.get_absolute_url }}" class="d-block card-header">
+                                <h2 class="card-title m-0">{{ game.name }}</h2>
+                            </a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <span class="text-muted">Release date: </span>{{ game.release_date }}
+                                </p>
+                                <p class="card-text">
+                                    <span class="text-muted">Platforms: </span>
+                                    {% for plat in game.platforms.all %}
+                                        <a href="{{ plat.get_absolute_url }}" class="px-1 mb-1 d-inline-block border border-dark rounded">{{ plat.name }}</a>
+                                    {% empty %}
+                                        <span>Not specified</span>
+                                    {% endfor %}
+                                </p>
+                                <p class="card-text">
+                                    <span class="text-muted">Genres: </span>
+                                    {% for genre in game.genres.all %}
+                                        <a href="{{ genre.get_absolute_url }}" class="px-1 mb-1 d-inline-block border border-dark rounded">{{ genre.name }}</a>
+                                    {% empty %}
+                                        <span>Not specified</span>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+            No games matched
         {% endfor %}
-        <p>{{ g.description }}</p>
-        {% for plat in g.platforms.all %}
-            <p>{{ plat.name }}</p>
-        {% endfor %}
-        <p><a href="{{ g.get_absolute_url }}">More</a></p>
-        <hr>
-    {% empty %}
-        No games matched
-    {% endfor %}
+    </div>
+    <!-- Games end -->
+
 {% endblock content %}
